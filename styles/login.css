@@ -1,3 +1,7 @@
+* {
+    font-family: 'Bangers', cursive;
+}
+
 body {
     background: url('../UI/Materials/19834.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
