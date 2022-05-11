@@ -2,6 +2,20 @@
     font-family: Verdana;
 }
 
+::-webkit-scrollbar {
+    width: 10px;
+    
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff36; 
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffffff89; 
+}
+
 body {
     background-color: #FFA600;
 }
@@ -24,7 +38,6 @@ body {
 }
 
 .chat-window-head {
-    /* background-color: red; */
     height: 10%;
     margin-top: -1em;
 }
@@ -55,11 +68,11 @@ body {
     padding-top: 1em;
     border-radius: 50px;
     width: 97%;
-    height: 80%;
+    height: 75%;
 }
 
 .message {
-    background-color: #7D6059;
+    background-color: #cf7f6d;
     border: 2px solid rgba(255, 255, 255, 0.7);
     box-shadow: -10px 10px 15px rgb(0, 0, 0, 0.5);
     border-radius: 35px;
@@ -67,6 +80,14 @@ body {
     max-width: 45%;
     color: white;
     margin-top: 4em;
+}
+
+.message-text {
+    margin-bottom: 1em;
+    margin-right: 1em;
+    margin-left: 1.5em;
+    margin-top: 1.5em;
+    font-weight: bold;
 }
 
 .my-message {
@@ -83,13 +104,6 @@ body {
 .user-chat-icon {
     position: absolute;
     margin-top: -1em;
-}
-
-.message-text {
-    margin-bottom: 1em;
-    margin-right: 1em;
-    margin-left: 1.5em;
-    margin-top: 1.5em;
 }
 
 .my-user-tag {
