@@ -1,3 +1,77 @@
+* {
+    font-family: Verdana;
+}
+
 body {
     background-color: #FFA600;
+}
+
+.chat-window {
+    background-color: #F7967F;
+    height: 800px;
+    width: 1350px;
+    border-radius: 50px;    
+    border: 2px solid rgb(255, 255, 255, 0.3);
+    box-shadow: -25px 20px 15px rgb(0, 0, 0, 0.5);
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.chat-window-head {
+    /* background-color: red; */
+    height: 10%;
+    margin-top: -1em;
+}
+
+#chat-name {
+    font-family: 'Bangers', cursive;
+    color: white;
+    margin: 1em 0 0.5em 1em;
+    font-size: 2.5rem;
+}
+
+.line {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+}
+
+.messages-container {
+    margin-top: 3em;
+}
+
+.message {
+    background-color: #7D6059;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    box-shadow: -10px 10px 15px rgb(0, 0, 0, 0.5);
+    border-radius: 35px;
+    min-width: 100px;
+    max-width: 40%;
+    float: left;
+    min-height: 40px;
+    color: white;
+}
+
+.sender-name {
+    font-weight: bold;
+    margin-top: -1.5em;
+    margin-left: 4em;
+}
+
+.user-chat-icon {
+    position: absolute;
+    margin-top: -2.5em;
+}
+
+.message-text {
+    padding-bottom: 1em;
+    padding-right: 1em;
+    padding-left: 1.5em;
+    padding-top: 1.2em;
 }
