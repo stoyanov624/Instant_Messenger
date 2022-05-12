@@ -1,57 +1,78 @@
 const input = document.getElementById('msg-sender') as HTMLInputElement | null;
 const messages = document.getElementById('chat');
 
-if(messages) {
-    messages.scrollTop = messages.scrollHeight;
-}
-
-if(input) {
+if (input) {
     input.addEventListener("keypress", event => {
         if (event.key === "Enter") {
-            let msg = input.value;
-            if(!msg || msg === '') {
+            const message = input.value;
+            if(!message || message === '') {
                 return;
             } else {
-                sendMessage(msg);
+                sendMyMessage(message);
+                input.value = '';
             }
         }
     });
 }
 
-const sendMessage = (msg : string) => {
-    createMessage(msg);
-    console.log(`msg ${msg} send`);
+const sendMyMessage = (message : string) => {
+    createMyMessageElement(message);
+    console.log(`msg ${message} send`);
 }
 
-const createMessage = (msg: string) => {
+const createMyMessageElement = (message: string) => {
     const myHTMLMessage = document.createElement('li');
     myHTMLMessage.classList.add(...['message', 'my-message', 'shadow']);
     const shouldKeepScrollAtBottom = (messages?.scrollHeight || 0) - (messages?.scrollTop || 0) === messages?.clientHeight;
-
-    const userTag = document.createElement('div');
-    userTag.classList.add('my-user-tag');
-
-    const senderName = document.createElement('p');
-    senderName.classList.add('sender-name');
-    senderName.innerText = 'You';
-
-    const senderIcon = document.createElement('img');
-    senderIcon.classList.add('user-chat-icon');
-    senderIcon.src = 'UI/Materials/user-profile-account-digital-data-robot-multimedia.png';
-
-    const myMessage = document.createElement('div');
-    myMessage.classList.add('message-text');
-    myMessage.innerText = msg;
-
-    userTag.appendChild(senderIcon);
-    userTag.appendChild(senderName);
+    
+    const userTag = createUserTagElement('You');
+    const myMessage = createMessageElement(message);
+    
     myHTMLMessage.appendChild(userTag);
     myHTMLMessage.appendChild(myMessage);
     messages?.appendChild(myHTMLMessage);
     
-    if(shouldKeepScrollAtBottom) {
+    if (shouldKeepScrollAtBottom) {
         messages.scrollTop = messages.scrollHeight;
     }
+}
+
+const createUserTagElement = (username: string) => {
+    const userTagElement = document.createElement('div');
+    userTagElement.classList.add('my-user-tag');
+
+    const senderName = createSenderNameElement(username);
+    const senderIcon = createSenderIconElement();
+
+    userTagElement.appendChild(senderIcon);
+    userTagElement.appendChild(senderName);
+
+    return userTagElement;
+}
+
+
+const createSenderNameElement = (username: string) => {
+    const senderNameElement = document.createElement('p');
+    senderNameElement.classList.add('sender-name');
+    senderNameElement.innerText = username;
+
+    return senderNameElement;
+}
+
+const createSenderIconElement = () => {
+    const senderIcon = document.createElement('img');
+    senderIcon.classList.add('user-chat-icon');
+    senderIcon.src = 'UI/Materials/user-profile-account-digital-data-robot-multimedia.png';
+
+    return senderIcon;
+}
+
+const createMessageElement = (messageSend: string) => {
+    const message = document.createElement('div');
+    message.classList.add('message-text');
+    message.innerText = messageSend;
+
+    return message;
 }
 
 export {};
