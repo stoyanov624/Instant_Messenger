@@ -22,8 +22,8 @@ body {
 
 .chat-window {
     background-color: #F7967F;
-    height: 800px;
-    width: 1350px;
+    height: 750px;
+    width: 1100px;
     border-radius: 50px;    
     border: 2px solid rgb(255, 255, 255, 0.3);
     box-shadow: -25px 20px 15px rgb(0, 0, 0, 0.5);
