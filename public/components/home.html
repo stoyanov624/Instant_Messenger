@@ -10,32 +10,30 @@
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="window">
-        <div id="chat">
-            <div class="column" id="groupList">
-                <div>
+    <div id="chat">
+        <div class="column" id="groupList">
+            <div>
+                test
+            </div>
+        </div>
+        <div class="column" style="width: 90%">
+            <div id="messagesLayoutWindow">
+               
+            </div>
+            <div class="row" id="friendList">
+
+            </div>
+        </div>
+        <div class="column">
+            <div id="profileMenu">
+                <div class="row" id="profileIcon">
                     test
                 </div>
             </div>
-            <div class="column" style="width: 550px;" >
-                <div id="messagesLayoutWindow">
-                    <div id="messages">
-                        text
-                    </div>
-                </div>
-                <div class="row" id="friendList">
 
-                </div>
-            </div>
-            <div class="column">
-                <div id="profileMenu">
-                    <div class="row" id="profileIcon">
-                        test
-                    </div>
-                </div>
-                <div id="buttonMenu">
-                    
-                </div>
+            
+            <div id="buttonMenu">
+                
             </div>
         </div>
     </div>
@@ -43,31 +41,38 @@
 </html>
 
 <style>
+
+    body {
+        background-color: orange;
+    }
+
+    .column {
+        margin-top: 1em;
+        height: 98%;
+    }
+
     #chat {
         display: flex;
-        justify-content: center;
-        margin-top: 15px;
-        margin-bottom: 15px;
-        margin-left: 10px;   
+        justify-content: space-around;
+        margin-top: 1em;
+
+        width: 100%;
+        height: 100%;
+
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
-    #window {
-        position: fixed;
-        display: flex;
-        justify-content: space-between;
-        background-color: orange;
-        width: 760px;
-        height: 500px;
-        top: 12%;
-        left: 27%;
-    }
+
     #profileMenu {
-        height: 400px;
+        height: 90%;
         width: 105px;
         background-color: #ffe2b3;
-        border-radius: 20px;
-        text-align: center;
-        
+        border-radius: 20px;        
     }
+
     #profileIcon {
         height: 80px;
         width: 80px;
@@ -76,48 +81,34 @@
         top: 5%;
         margin-left: 10px;
         border-radius: 100%;
-
     }
+    
     #groupList {
         width: 80px;
         margin-right: 5px;
         background-color: #ffe2b3;
         border-radius: 20px;
-        height: 470px;
+        height: 95%;
     }
+
     #buttonMenu {
         width: 105px;
-        height: 100px;
-        max-height: 60px;
+        height: 80px;
         background-color: #ffe2b3;
         border-radius: 20px;
         margin-top: 10px;
     }
+    
     #messagesLayoutWindow {
         background-color: #ffe2b3;
-        height: 85%;
-        margin-left: 5px;
-        margin-right: 8px;
+        height: 90%;
         border-radius: 20px;
-        justify-content: center;
     }
+
     #friendList {
         background-color: #ffe2b3;
-        height: 13%;
+        height: 80px;
         border-radius: 20px;
         margin-top: 10px;
-        margin-right: 13px;
-        margin-left: 5px;
-    }
-    #messages {
-        background-color: #f7977f;
-        width: 90%;
-        height: 90%;
-        top: 5%;
-        margin: 0 auto;
-        position:relative;
-        border-radius: 20px;
-        -webkit-box-shadow: 0 0 15px 5px #8c7d62;
-        box-shadow: 0 0 15px 5px #8c7d62;
     }
 </style>
