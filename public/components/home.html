@@ -5,57 +5,119 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Instant Messenger</title>
-    <link rel="stylesheet" href="styles/main-page.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="chat-window center shadow"> 
-        <div class="chat-window-head">
-            <p id="chat-name"> Private chat with GOSHO </p>
-            <div class="line"></div>
+    <div id="window">
+        <div id="chat">
+            <div class="column" id="groupList">
+                <div>
+                    test
+                </div>
+            </div>
+            <div class="column" style="width: 550px;" >
+                <div id="messagesLayoutWindow">
+                    <div id="messages">
+                        text
+                    </div>
+                </div>
+                <div class="row" id="friendList">
+
+                </div>
+            </div>
+            <div class="column">
+                <div id="profileMenu">
+                    <div class="row" id="profileIcon">
+                        test
+                    </div>
+                </div>
+                <div id="buttonMenu">
+                    
+                </div>
+            </div>
         </div>
-            <ul style="list-style-type: none;" class="message-container" id="chat">
-                <!-- <li class="message my-message shadow">
-                    <div class="my-user-tag">
-                        <img class="user-chat-icon" src="UI/Materials/user-profile-account-digital-data-robot-multimedia.png">
-                        <p class="sender-name">You</p>
-                    </div>
-                    
-                    <div class="message-text">Hello!</div>
-                </li>
-
-                <li class="message shadow">
-                    <div>
-                        <img class="user-chat-icon" src="UI/Materials/user-profile-account-digital-data-robot-multimedia.png">
-                        <p class="sender-name">Gosho</p>
-                    </div>
-                    
-                    <div class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia facere non amet, delectus id minus aperiam distinctio! Cumque placeat, nesciunt in exercitationem modi repellat consectetur quia voluptatum? Reiciendis quia explicabo perspiciatis maxime vel possimus quasi quas alias deserunt! Excepturi tempora at temporibus! Minus facilis hic suscipit, mollitia pariatur atque quidem!</div>
-                </li>
-
-                <li class="message shadow">
-                    <div>
-                        <img class="user-chat-icon" src="UI/Materials/user-profile-account-digital-data-robot-multimedia.png">
-                        <p class="sender-name">Gosho</p>
-                    </div>
-                    
-                    <div class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia facere non amet, delectus id minus aperiam distinctio! Cumque placeat, nesciunt in exercitationem modi repellat consectetur quia voluptatum? Reiciendis quia explicabo perspiciatis maxime vel possimus quasi quas alias deserunt! Excepturi tempora at temporibus! Minus facilis hic suscipit, mollitia pariatur atque quidem!</div>
-                </li>
-
-
-                <li class="message shadow">
-                    <div>
-                        <img class="user-chat-icon" src="UI/Materials/user-profile-account-digital-data-robot-multimedia.png">
-                        <p class="sender-name">Gosho</p>
-                    </div>
-                    
-                    <div class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia facere non amet, delectus id minus aperiam distinctio! Cumque placeat, nesciunt in exercitationem modi repellat consectetur quia voluptatum? Reiciendis quia explicabo perspiciatis maxime vel possimus quasi quas alias deserunt! Excepturi tempora at temporibus! Minus facilis hic suscipit, mollitia pariatur atque quidem!</div>
-                </li> -->
-            </ul>
-            <input id="msg-sender" type="text">
     </div>
-<script src="/dist/messageSending.js" type="module"></script>
 </body>
 </html>
+
+<style>
+    #chat {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+        margin-bottom: 15px;
+        margin-left: 10px;   
+    }
+    #window {
+        position: fixed;
+        display: flex;
+        justify-content: space-between;
+        background-color: orange;
+        width: 760px;
+        height: 500px;
+        top: 12%;
+        left: 27%;
+    }
+    #profileMenu {
+        height: 400px;
+        width: 105px;
+        background-color: #ffe2b3;
+        border-radius: 20px;
+        text-align: center;
+        
+    }
+    #profileIcon {
+        height: 80px;
+        width: 80px;
+        background-color: #ffb3b3;
+        position: relative;
+        top: 5%;
+        margin-left: 10px;
+        border-radius: 100%;
+
+    }
+    #groupList {
+        width: 80px;
+        margin-right: 5px;
+        background-color: #ffe2b3;
+        border-radius: 20px;
+        height: 470px;
+    }
+    #buttonMenu {
+        width: 105px;
+        height: 100px;
+        max-height: 60px;
+        background-color: #ffe2b3;
+        border-radius: 20px;
+        margin-top: 10px;
+    }
+    #messagesLayoutWindow {
+        background-color: #ffe2b3;
+        height: 85%;
+        margin-left: 5px;
+        margin-right: 8px;
+        border-radius: 20px;
+        justify-content: center;
+    }
+    #friendList {
+        background-color: #ffe2b3;
+        height: 13%;
+        border-radius: 20px;
+        margin-top: 10px;
+        margin-right: 13px;
+        margin-left: 5px;
+    }
+    #messages {
+        background-color: #f7977f;
+        width: 90%;
+        height: 90%;
+        top: 5%;
+        margin: 0 auto;
+        position:relative;
+        border-radius: 20px;
+        -webkit-box-shadow: 0 0 15px 5px #8c7d62;
+        box-shadow: 0 0 15px 5px #8c7d62;
+    }
+</style>
