@@ -1,13 +1,15 @@
 * {
-    font-family: 'Bangers', cursive;
+  font-family: 'Bangers', cursive;
+  color: rgba(255, 255, 255, 0);
+  -webkit-text-stroke: 1px black;
 }
 
 body {
-    background-image: url('./19834.jpg ');
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100vh;
-    height: 100vh;
+  background: url('../public/components/UI/Materials/19834.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .center{
     text-align: center;
@@ -82,41 +84,8 @@ body {
     transition: .5s;
   }
 
-
-/* 
-  .txt_field label{
-    position: absolute;
-    top: 50%;
-    left: 5px;
-    color: #ff1b1b;
-    font-size: 16px;
-    pointer-events: none;
-    transition: .5s;
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
   }
-  .txt_field span::before{
-    content: '';
-    position: absolute;
-    top: 42px;
-    left: 20px;
-    width: 0%;
-    height: 2px;
-    border-color: #e77110;
-    transition: .5s;
-  }
-  .txt_field input:focus ~ label,
-  .txt_field input:valid ~ label{
-    top: -5px;
-    color: #2691d9;
-  }
-  .txt_field input:focus ~ span::before,
-  .txt_field input:valid ~ span::before{
-    width: 93%;
-  }
-  .pass{
-    margin: -5px 0 20px 5px;
-    color: #a6a6a6;
-    cursor: pointer;
-  }
-  .pass:hover{
-    text-decoration: underline;
-}*/
