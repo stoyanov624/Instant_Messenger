@@ -130,3 +130,97 @@ body {
 #msg-sender:focus {
     background-color: rgba(255, 255, 255, 0.7);
 }
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.column {
+    margin-top: 1em;
+    height: 98%;
+}
+
+.profileButton {
+    margin-top: 5px;
+    height: 25px;
+    width: 80px;
+    border-radius: 25px;
+    background-color: #ffb3b3;
+}
+
+#chat {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 1em;
+
+    width: 60%;
+    height: 70%;
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#profileMenu {
+    height: 85%;
+    width: 105px;
+    background-color: #ffe2b3;
+    border-radius: 20px;        
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#profileIcon {
+    height: 80px;
+    width: 80px;
+    background-color: #ffb3b3;
+    position: relative;
+    top: 5%;
+    border-radius: 100%;
+}
+
+#groupList {
+    width: 80px;
+    margin-right: 5px;
+    background-color: #ffe2b3;
+    border-radius: 20px;
+    height: 94%;
+}
+
+#buttonMenu {
+    width: 105px;
+    height: 10%;
+    background-color: #ffe2b3;
+    border-radius: 20px;
+    margin-top: 7%;
+}
+
+#messagesLayoutWindow {
+    background-color: #ffe2b3;
+    height: 85%;
+    margin-right: 5px;
+    border-radius: 20px;
+}
+
+#friendList {
+    background-color: #ffe2b3;
+    height: 10%;
+    border-radius: 20px;
+    margin-top: 7px;
+    margin-right: 5px;
+}
+#messages {
+    background-color: #f7977f;
+    width: 90%;
+    height: 90%;
+    top: 5%;
+    margin: 0 auto;
+    position:relative;
+    border-radius: 20px;
+    -webkit-box-shadow: 0 0 15px 5px #8c7d62;
+    box-shadow: 0 0 15px 5px #8c7d62;
+}

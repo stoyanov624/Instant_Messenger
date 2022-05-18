@@ -8,17 +8,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main-page.css">
 </head>
 <body>
     <div id="chat">
         <div class="column" id="groupList">
             <div>
-                test
             </div>
         </div>
         <div class="column" style="width: 90%">
             <div id="messagesLayoutWindow">
-               
+                <div id="messages">
+                </div>
             </div>
             <div class="row" id="friendList">
 
@@ -27,10 +28,20 @@
         <div class="column">
             <div id="profileMenu">
                 <div class="row" id="profileIcon">
-                    test
                 </div>
-            </div>
+                <ul>
+                    <li class="profileButton" style="margin-top: 20px;">
 
+                    </li>
+
+                    <li class="profileButton">
+                        
+                    </li>
+                    <li class="profileButton">
+                        
+                    </li>
+                </ul>
+            </div>
             
             <div id="buttonMenu">
                 
@@ -39,76 +50,3 @@
     </div>
 </body>
 </html>
-
-<style>
-
-    body {
-        background-color: orange;
-    }
-
-    .column {
-        margin-top: 1em;
-        height: 98%;
-    }
-
-    #chat {
-        display: flex;
-        justify-content: space-around;
-        margin-top: 1em;
-
-        width: 100%;
-        height: 100%;
-
-        margin: 0;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-    }
-
-    #profileMenu {
-        height: 90%;
-        width: 105px;
-        background-color: #ffe2b3;
-        border-radius: 20px;        
-    }
-
-    #profileIcon {
-        height: 80px;
-        width: 80px;
-        background-color: #ffb3b3;
-        position: relative;
-        top: 5%;
-        margin-left: 10px;
-        border-radius: 100%;
-    }
-    
-    #groupList {
-        width: 80px;
-        margin-right: 5px;
-        background-color: #ffe2b3;
-        border-radius: 20px;
-        height: 95%;
-    }
-
-    #buttonMenu {
-        width: 105px;
-        height: 80px;
-        background-color: #ffe2b3;
-        border-radius: 20px;
-        margin-top: 10px;
-    }
-    
-    #messagesLayoutWindow {
-        background-color: #ffe2b3;
-        height: 90%;
-        border-radius: 20px;
-    }
-
-    #friendList {
-        background-color: #ffe2b3;
-        height: 80px;
-        border-radius: 20px;
-        margin-top: 10px;
-    }
-</style>
