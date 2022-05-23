@@ -23,7 +23,7 @@ const sendMyMessage = (message : string) => {
 const createMyMessageElement = (message: string) => {
     const myHTMLMessage = document.createElement('li');
     myHTMLMessage.classList.add(...['message', 'my-message', 'shadow']);
-    const shouldKeepScrollAtBottom = (messages?.scrollHeight || 0) - (messages?.scrollTop || 0) === messages?.clientHeight;
+    // const shouldKeepScrollAtBottom = (messages?.scrollHeight || 0) - (messages?.scrollTop || 0) === messages?.clientHeight;
     
     const userTag = createUserTagElement('You');
     const myMessage = createMessageElement(message);
@@ -32,9 +32,9 @@ const createMyMessageElement = (message: string) => {
     myHTMLMessage.appendChild(myMessage);
     messages?.appendChild(myHTMLMessage);
     
-    if (shouldKeepScrollAtBottom) {
-        messages.scrollTop = messages.scrollHeight;
-    }
+    // if (shouldKeepScrollAtBottom) {
+    //     messages.scrollTop = messages.scrollHeight;
+    // }
 }
 
 const createUserTagElement = (username: string) => {

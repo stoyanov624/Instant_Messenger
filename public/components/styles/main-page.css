@@ -25,8 +25,8 @@ body {
 
 .chat-window {
     background-color: #F7967F;
-    height: 750px;
-    width: 1100px;
+    height: 90%;
+    width: 90%;
     border-radius: 50px;    
     border: 2px solid rgb(255, 255, 255, 0.3);
     box-shadow: -25px 20px 15px rgb(0, 0, 0, 0.5);
@@ -184,7 +184,7 @@ ul {
 }
 
 #buttonMenu {
-        background-color: #ffe2b3;
+    background-color: #ffe2b3;
     border-radius: 20px;
     margin-top: 1em;
 }
@@ -193,6 +193,9 @@ ul {
     background-color: #ffe2b3;
     height: 85%;
     border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #friendList {
