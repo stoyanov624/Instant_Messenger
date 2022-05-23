@@ -18,6 +18,9 @@
 
 body {
     background-color: #FFA600;
+    margin: 0; 
+    height: 100%; 
+    overflow: hidden
 }
 
 .chat-window {
@@ -134,12 +137,10 @@ body {
 ul {
     list-style-type: none;
     padding: 0;
-    margin-top: 10px;
 }
 
-.column {
-    margin-top: 1em;
-    height: 98%;
+.center-column {
+    width: 90%;
 }
 
 .profileButton {
@@ -150,27 +151,21 @@ ul {
     background-color: #ffb3b3;
 }
 
-#chat {
+.chat-container {
     display: flex;
     justify-content: space-around;
     margin-top: 1em;
-
-    width: 95%;
-    height: 800px;
-    
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    width: 1900px;
+    height: 950px;
+    overflow: none;
 }
 
 #profileMenu {
-    height: 85%;
-    width: 105px;
     background-color: #ffe2b3;
     border-radius: 20px;        
     display: flex;
     flex-direction: column;
+    margin-left: 15px;
     align-items: center;
 }
 
@@ -179,29 +174,24 @@ ul {
     width: 80px;
     background-color: #ffb3b3;
     border-radius: 100%;
-    margin-top: 10px;
+    margin-top: 1em;
 }
 
 #groupList {
-    width: 80px;
-    margin-right: 5px;
     background-color: #ffe2b3;
     border-radius: 20px;
-    height: 94%;
+    margin-right: 15px;
 }
 
 #buttonMenu {
-    width: 105px;
-    height: 10%;
-    background-color: #ffe2b3;
+        background-color: #ffe2b3;
     border-radius: 20px;
-    margin-top: 7%;
+    margin-top: 1em;
 }
 
 #messagesLayoutWindow {
     background-color: #ffe2b3;
     height: 85%;
-    margin-right: 5px;
     border-radius: 20px;
 }
 
@@ -209,17 +199,11 @@ ul {
     background-color: #ffe2b3;
     height: 10%;
     border-radius: 20px;
-    margin-top: 7px;
+    margin-top: 10px;
     margin-right: 5px;
 }
-#messages {
-    background-color: #f7977f;
-    width: 90%;
-    height: 90%;
-    top: 5%;
-    margin: 0 auto;
-    position:relative;
-    border-radius: 20px;
-    -webkit-box-shadow: 0 0 15px 5px #8c7d62;
-    box-shadow: 0 0 15px 5px #8c7d62;
+
+.side-column {
+    width: 105px;
+    height: 96%;
 }
