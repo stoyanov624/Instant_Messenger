@@ -1,4 +1,5 @@
 import express, {Application, Request, Response, NextFunction} from 'express';
+import "reflect-metadata"
 
 const app : Application = express();
 
