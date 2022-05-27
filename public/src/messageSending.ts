@@ -1,25 +1,17 @@
 import {io} from 'socket.io-client';
 
+let user = {username: 'pesho', chatGroups : [1]};
+
 const socket = io('http://localhost:3000');
 const input = document.getElementById('msg-sender') as HTMLInputElement | null;
 const messages = document.getElementById('chat');
-let username = '';
+
+socket.emit('join-rooms', user.chatGroups);
+
 if (input) {
     input.addEventListener("keypress", event => {
         if (event.key === "Enter") {
             const message = input.value;
-            if(!username) {
-                username = message;
-                input.value = '';
-                if(username === 'pesho') {
-                    socket.emit('join-room', 'gosho');
-                    socket.emit('create-room', 'pesho');
-                } else {
-                    socket.emit('join-room', 'pesho');
-                    socket.emit('create-room', 'gosho');
-                }
-                return;
-            }
             if(!message || message === '') {
                 return;
             } else {
@@ -37,8 +29,7 @@ socket.on('receive-message', (message : string) => {
 const sendMyMessage = (message : string) => {
     createMyMessageElement(message);
     console.log(socket.id);
-    const receiver = username === 'pesho' ? 'gosho' : 'pesho';
-    socket.emit('send-message', message, receiver);
+    socket.emit('send-message', message, 1);
 }
 
 const createReceivedMessageElement = (message: string) => {
@@ -46,7 +37,7 @@ const createReceivedMessageElement = (message: string) => {
     myHTMLMessage.classList.add(...['message', 'shadow']);
     const shouldKeepScrollAtBottom = (messages?.scrollHeight || 0) - (messages?.scrollTop || 0) === messages?.clientHeight;
     
-    const userTag = createUserTagElement(username);
+    const userTag = createUserTagElement(user.username);
     userTag.classList.remove('my-user-tag');
     const myMessage = createMessageElement(message);
     
@@ -64,7 +55,7 @@ const createMyMessageElement = (message: string) => {
     myHTMLMessage.classList.add(...['message', 'my-message', 'shadow']);
     // const shouldKeepScrollAtBottom = (messages?.scrollHeight || 0) - (messages?.scrollTop || 0) === messages?.clientHeight;
     
-    const userTag = createUserTagElement(username);
+    const userTag = createUserTagElement(user.username);
     const myMessage = createMessageElement(message);
     
     myHTMLMessage.appendChild(userTag);
