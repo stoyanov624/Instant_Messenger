@@ -15,8 +15,20 @@ app.get('/', (req : Request, res : Response) => {
 })
 
 io.on('connection', socket => {
-    console.log('Hi');
-    console.log(socket.id);
+    console.log(`User socket -> ${socket.id}`);
+    socket.on('send-message', (message : string, receiver: string) => {
+        console.log(message);
+        console.log(receiver);
+        socket.to(receiver).emit('receive-message', message);
+    })
+
+    socket.on('join-room', (username : string) => {
+        socket.join(username);
+    })
+
+    socket.on('create-room', (username : string) => {
+        socket.join(username);
+    })
 });
 
 server.listen(PORT, () => console.log(`Server listening at port: ${PORT}`))
