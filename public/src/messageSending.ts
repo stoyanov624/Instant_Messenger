@@ -1,3 +1,6 @@
+import {io} from 'socket.io-client';
+
+const socket = io('http://localhost:3000');
 const input = document.getElementById('msg-sender') as HTMLInputElement | null;
 const messages = document.getElementById('chat');
 

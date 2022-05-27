@@ -4,7 +4,9 @@
     "build": "snowpack build"
   },
   "dependencies": {
-    "canvas-confetti": "^1.2.0"
+    "@types/socket.io-client": "^3.0.0",
+    "canvas-confetti": "^1.2.0",
+    "socket.io-client": "^4.5.0"
   },
   "devDependencies": {
     "@snowpack/plugin-typescript": "^1.2.1",
