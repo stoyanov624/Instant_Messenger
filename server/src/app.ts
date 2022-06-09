@@ -1,4 +1,5 @@
-import express, {Application, Request, Response} from 'express';
+require('dotenv').config();
+import express, {Application} from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import { AppDataSource } from './databates-connector';
@@ -10,7 +11,6 @@ app.use(express.json());
 const server = createServer(app);
 const io = new Server(server, {cors: {origin: ['http://localhost:8080']}});
 
-const PORT = 3000;
 AppDataSource.initialize().then(() => {
     io.on('connection', socket => {
         socket.on('send-message', (message : string, chatroomId: number) => {
@@ -25,6 +25,6 @@ AppDataSource.initialize().then(() => {
     });
     const mainRouter : MainRouter = new MainRouter();
     app.use(mainRouter.router);
-    server.listen(PORT, () => console.log(`Server listening at port: ${PORT}`))
+    server.listen(process.env.PORT, () => console.log(`Server listening at port: ${process.env.PORT}`))
 
 }).catch(error => console.log(error));
