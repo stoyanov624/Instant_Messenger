@@ -1,6 +1,6 @@
 import * as express from 'express';
 import { AppDataSource } from '../databates-connector';
-import { User } from '../entities/User';
+import { User } from '../entities/User.entity';
 
 class UserController {
     router: express.Router;
