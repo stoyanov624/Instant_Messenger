@@ -1,8 +1,8 @@
 import express, {Application, Request, Response} from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
-import { User } from './entities/User';
 import { AppDataSource } from './databates-connector';
+import { MainRouter } from './router/MainRouter';
 
 const app : Application = express(); 
 app.use(express.json());
@@ -23,12 +23,8 @@ AppDataSource.initialize().then(() => {
             }
         })
     });
-
-    app.get('/users', async (request: Request, response: Response) => {
-        const users = await AppDataSource.manager.createQueryBuilder(User, 'user').getMany();
-        response.status(200).send(users);
-    });
-
+    const mainRouter : MainRouter = new MainRouter();
+    app.use(mainRouter.router);
     server.listen(PORT, () => console.log(`Server listening at port: ${PORT}`))
 
 }).catch(error => console.log(error));
