@@ -4,6 +4,7 @@ import { createServer } from 'http';
 import { Server } from 'socket.io';
 import { AppDataSource } from './databates-connector';
 import { MainRouter } from './router/MainRouter';
+import "reflect-metadata"
 
 const app : Application = express(); 
 app.use(express.json());

@@ -8,7 +8,7 @@ const AppDataSource = new DataSource({
   password: process.env.ORM_PASSWORD,
   database: process.env.ORM_DATABASE,
   entities: [process.env.ENTITIES_FOLDER_PATH],
-  synchronize: true,
+  synchronize: false,
   logging: false,
 })
 
