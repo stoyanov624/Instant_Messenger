@@ -1,10 +1,10 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { ChatGroup } from "./ChatGroup";
 import { User } from "./User";
 
-@Entity()
+@Entity('messages')
 export class Message {
-    @PrimaryColumn() 
+    @PrimaryGeneratedColumn() 
     id: number;
 
     @Column()
