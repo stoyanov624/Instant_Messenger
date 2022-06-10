@@ -1,12 +1,34 @@
-import { Entity, Column, PrimaryGeneratedColumn } from "typeorm"
+import {Entity, Column, OneToMany, ManyToMany, PrimaryGeneratedColumn} from "typeorm";
+import { ChatGroup } from "./ChatGroup.entity";
+import { Message } from "./Message.entity";
 
 @Entity('users')
 export class User {
     @PrimaryGeneratedColumn()
-    id: number
+    id: number;
 
     @Column({
-        length: 100,
+        unique: true
     })
-    name: string
+    username: string;
+
+    @Column({
+        unique: true
+    })
+    email: string;
+
+    @Column()
+    password: string;
+
+    @OneToMany(
+        () => Message,
+        message => message.user
+    )
+    messages: Message[]
+
+    @ManyToMany(
+        () => ChatGroup,
+        chatgroup => chatgroup.users
+    )
+    chatgroups: ChatGroup[]
 }
