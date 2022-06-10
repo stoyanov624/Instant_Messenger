@@ -10,6 +10,12 @@ export class Message {
     @Column()
     content: string;
 
+    @Column()
+    isPrivate: boolean;
+
+    @Column() 
+    date: Date;
+
     @ManyToOne(
         () => User,
         user => user.messages
