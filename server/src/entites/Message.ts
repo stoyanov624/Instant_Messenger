@@ -1,4 +1,5 @@
 import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn } from "typeorm";
+import { ChatGroup } from "./ChatGroup";
 import { User } from "./User";
 
 @Entity()
@@ -14,8 +15,19 @@ export class Message {
         user => user.messages
     )   
 
+    @ManyToOne(
+        () => ChatGroup,
+        chatgroup => chatgroup.messages
+    )
+
     @JoinColumn({
         name: 'user_id'
     })
     user: User
+
+    @JoinColumn({
+        name: 'chatgroup_id'
+    })
+    chatgroup: ChatGroup
+    
 }
