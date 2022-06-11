@@ -1,6 +1,9 @@
 import {io} from 'socket.io-client';
 
-let user = {username: window.localStorage.getItem('username') || '', chatGroups : [1]};
+let user = {
+    username: window.localStorage.getItem('username') || '', 
+    chatGroups : [1]
+};
 
 const socket = io('http://localhost:3000');
 const input = document.getElementById('msg-sender') as HTMLInputElement | null;
