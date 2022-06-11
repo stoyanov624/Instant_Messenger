@@ -9,11 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main-page.css">
+    <script type="text/javascript" src="../src/groupList.js"></script>
 </head>
 <body>
     <div class="chat-container center">
-        <div class="side-column" id="groupList">
-            
+        <div class="side-column" id="groupList" onclick="addGroups()">
         </div>
 
         <div class="center-column">
@@ -45,8 +45,7 @@
                         <input id="msg-sender" type="text">
                 </div>
             </div>
-            <div class="row" id="friendList">
-
+            <div class="row" id="friendList" onclick=" addFriends()">
             </div>
         </div>
         
