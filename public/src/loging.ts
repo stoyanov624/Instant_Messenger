@@ -1,15 +1,15 @@
-const startButton = document.getElementById('start');
-const registerButton = document.getElementById('reg-btn');
-const backButton = document.getElementById('back-btn');
+import { login } from "./services/userService";
+
+const registerNavigationButton = document.getElementById('reg-nav-btn');
+const loginButton = document.getElementById('login-btn');
+const backButton = document.getElementById('back-nav-btn');
 const loginForm = document.getElementById('login');
 const registerForm = document.getElementById('register');
 
 const usernameField = document.getElementById('username-field') as HTMLInputElement;
-startButton?.addEventListener('click', () => {
-    if(usernameField?.value.trim()) {
-        window.localStorage.setItem('username', usernameField.value);
-        window.location.replace('http://localhost:8080/home.html')
-    }
+
+loginButton?.addEventListener('click', () => {
+    login('alabala', 'alabala');
 }); 
 
 backButton?.addEventListener('click', () => {
@@ -19,7 +19,7 @@ backButton?.addEventListener('click', () => {
     }
 })
 
-registerButton?.addEventListener('click', () => {
+registerNavigationButton?.addEventListener('click', () => {
     if (registerForm && loginForm) {
         registerForm.style.display = 'block';
         loginForm.style.display = 'none'
