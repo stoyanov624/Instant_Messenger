@@ -2,32 +2,69 @@
 
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instant Messenger</title>
+    <meta charset="uft -8">
+    <title>Instant messenger</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles/login.css" />
-
-</head>
+    <link rel="stylesheet" href="styles/login_styles.css">
+   </head>
    <body>
-    <div class="form-container in-circle">
-      <h1 class="title-logo">INSTANT MESSENGER</h1>
-      <form>
-        <p class="username-txt">USERNAME</p>
-        
-        <div class="txt_field">
-          <input id="username-field" type="text" placeholder="ENTER USERNAME" onfocus="this.placeholder=''" onblur="this.placeholder='ENTER USERNAME'">
+    <div class="in-circle">
+      <h1>INSTANT MESSENGER</h1>
+      <form id="login" class="login-form" action="/login" method="POST">
+        <div>
+            <label>EMAIL</label>
         </div>
-        
-        <div class="buttons-container">
-          <button type="button" class="start-button" id="start">START</button>
+        <div class="txt_field">
+          <input type="text" placeholder="Enter Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Username'">
+        </div>
+        <div>
+            <label>PASSWORD</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" placeholder="Enter Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Password'">
+        </div>
+
+        <div class="buttons">
+          <button type="button">LOGIN</button>
+          <button type="button" id="reg-btn">REGISTER</button>
         </div>
       </form>
-    </div>
-  <script src="/dist/loging.js" type="module"></script>
 
+      <form id="register" class="register-form" action="/register" method="POST">
+        <div>
+            <label>USERNAME</label>
+        </div>
+        <div class="txt_field">
+          <input type="text" placeholder="Enter Username" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Username'">
+        </div>
+        <div>
+          <label>EMAIL</label>
+      </div>
+      <div class="txt_field">
+        <input type="text" placeholder="Enter Email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email'">
+      </div>
+      <div>
+          <label>EMAIL AGAIN</label>
+      </div>
+      <div class="txt_field">
+        <input type="text" placeholder="Enter Email Again" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Email Again'">
+      </div>
+        <div>
+            <label>PASSWORD</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" placeholder="Enter Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Password'">
+        </div>
+
+        <div class="buttons">
+          <button type="button" id="back-btn">BACK</button>
+          <button type="button"> REGISTER</button>
+        </div>
+        
+      </form>
+    </div>
+    <script src="/dist/loging.js" type="module"></script>
   </body>
 </html>
