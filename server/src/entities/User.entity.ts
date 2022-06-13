@@ -20,6 +20,9 @@ export class User {
     @Column()
     password: string;
 
+    @Column()
+    date: Date;
+
     @OneToMany(
         () => Message,
         message => message.user
@@ -31,4 +34,10 @@ export class User {
         chatgroup => chatgroup.users
     )
     chatgroups: ChatGroup[]
+
+    constructor() {
+        this.username = '';
+        this.password = '';
+        this.date = new Date();
+    }
 }

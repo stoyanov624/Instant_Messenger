@@ -33,9 +33,14 @@ class UserController {
     private async register(request: express.Request, response: express.Response) {
         try {
             const hashedPassword = await bcrypt.hash(request.body.password, 10);
-
-
-            response.status(200).send('OK');
+            const user : User = new User();
+            user.username = request.body.username;
+            user.password = hashedPassword;
+            user.email = request.body.email;
+            
+            await AppDataSource.manager.save(User, user);
+            delete(user.password);
+            response.status(200).send(user);
         } catch(error) {
 
         }

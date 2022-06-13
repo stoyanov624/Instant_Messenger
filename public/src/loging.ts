@@ -1,4 +1,4 @@
-import { login, register } from "./services/userService";
+import { login, register } from './services/userService';
 
 const registerNavigationButton = document.getElementById('reg-nav-btn');
 const backButton = document.getElementById('back-nav-btn');
