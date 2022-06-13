@@ -9,4 +9,14 @@ const login = (username: string, password: string) => {
     })
 }
 
-export {login}; 
+const register = (username: string, password: string, email: string) => {
+    axios.post('http://localhost:3000/users/register', {
+        username: username,
+        password: password,
+        email: email
+    }).then(response => {
+        console.log(response.data);
+    })
+}
+
+export {login, register}; 

@@ -33,11 +33,8 @@ class UserController {
     private async register(request: express.Request, response: express.Response) {
         try {
             const hashedPassword = await bcrypt.hash(request.body.password, 10);
-            console.log(request.body.username);
-            console.log(request.body.email);
-            console.log(hashedPassword);
 
-            response.redirect('/home.html')
+
             response.status(200).send('OK');
         } catch(error) {
 
