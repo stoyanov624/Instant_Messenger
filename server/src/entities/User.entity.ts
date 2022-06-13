@@ -1,4 +1,4 @@
-import {Entity, Column, OneToMany, ManyToMany, PrimaryGeneratedColumn} from "typeorm";
+import {Entity, Column, OneToMany, ManyToMany, PrimaryGeneratedColumn, JoinTable} from "typeorm";
 import { ChatGroup } from "./ChatGroup.entity";
 import { Message } from "./Message.entity";
 
@@ -29,10 +29,18 @@ export class User {
     )
     messages: Message[]
 
-    @ManyToMany(
-        () => ChatGroup,
-        chatgroup => chatgroup.users
-    )
+    @ManyToMany(() => ChatGroup)
+    @JoinTable({
+        name: 'chat_groups_users',
+        joinColumn: {
+            name: 'user_id',
+            referencedColumnName: 'id'
+        },
+        inverseJoinColumn: {
+            name: 'chat_group_id',
+            referencedColumnName: 'id'
+        }
+    })
     chatgroups: ChatGroup[]
 
     constructor() {

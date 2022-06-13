@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToMany, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinTable, ManyToMany, OneToMany, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { User } from "./User.entity";
 import { Message } from "./Message.entity";
 
@@ -10,10 +10,18 @@ export class ChatGroup {
     @Column()
     content: string;
 
-    @ManyToMany(
-        () => User,
-        user => user.messages
-    )   
+    @ManyToMany(() => User)
+    @JoinTable({
+        name: 'chat_groups_users',
+        joinColumn: {
+            name: 'chat_group_id',
+            referencedColumnName: 'id'
+        }, 
+        inverseJoinColumn: {
+            name: 'user_id',
+            referencedColumnName: 'id'
+        }
+    })
     users: User[]
     
     @OneToMany(

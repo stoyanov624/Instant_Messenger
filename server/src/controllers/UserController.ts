@@ -26,6 +26,7 @@ class UserController {
         try {
             const username = request.body.username;
             const user : User = await AppDataSource.manager.findOne(User, {
+                relations: ['chatgroups'],
                 where: {username: username}
             }); 
             if (user) {
@@ -36,6 +37,8 @@ class UserController {
                 } else {
                     response.status(200).send('Wrong password');
                 }
+            } else {
+                response.status(200).send('Wrong username');
             }
 
         } catch(error) {
@@ -51,9 +54,6 @@ class UserController {
             user.username = request.body.username;
             user.password = hashedPassword;
             user.email = request.body.email;
-
-            console.log(user.username);
-            console.log(request.body.password);
 
             await AppDataSource.manager.save(User, user);
             delete(user.password);
