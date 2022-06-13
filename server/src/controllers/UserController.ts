@@ -24,9 +24,23 @@ class UserController {
 
     private async login(request: express.Request, response: express.Response) {
         try {
-            console.log(request.body);
-            response.status(200).send('OK');
+            const username = request.body.username;
+            const user : User = await AppDataSource.manager.findOne(User, {
+                where: {username: username}
+            }); 
+            if (user) {
+                const correctPassword = await bcrypt.compare(request.body.password, user.password);
+                if (correctPassword) {
+                    delete(user.password);
+                    response.status(200).send(user);
+                } else {
+                    response.status(200).send('Wrong password');
+                }
+            }
+
         } catch(error) {
+            console.error(error);
+            response.status(500).send({ message: error.message});
         }
     }
 
@@ -37,12 +51,16 @@ class UserController {
             user.username = request.body.username;
             user.password = hashedPassword;
             user.email = request.body.email;
-            
+
+            console.log(user.username);
+            console.log(request.body.password);
+
             await AppDataSource.manager.save(User, user);
             delete(user.password);
             response.status(200).send(user);
         } catch(error) {
-
+            console.error(error);
+            response.status(500).send({ message: error.message});
         }
     }
 }
