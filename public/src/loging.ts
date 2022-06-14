@@ -1,14 +1,37 @@
-const startButton = document.getElementById('start');
-const registerButton = document.getElementById('reg-btn');
-const backButton = document.getElementById('back-btn');
+import { login, register } from './services/userService';
+
+const registerNavigationButton = document.getElementById('reg-nav-btn');
+const backButton = document.getElementById('back-nav-btn');
+
+const loginButton = document.getElementById('login-btn');
+const registerButton = document.getElementById('register-btn');
+
 const loginForm = document.getElementById('login');
 const registerForm = document.getElementById('register');
 
-const usernameField = document.getElementById('username-field') as HTMLInputElement;
-startButton?.addEventListener('click', () => {
-    if(usernameField?.value.trim()) {
-        window.localStorage.setItem('username', usernameField.value);
-        window.location.replace('http://localhost:8080/home.html')
+const usernameLoginField = document.getElementById('username-login-field') as HTMLInputElement;
+const passwordLoginField = document.getElementById('password-login-field') as HTMLInputElement;
+
+const usernameRegisterField = document.getElementById('username-register-field') as HTMLInputElement;
+const passwordRegisterField = document.getElementById('password-register-field') as HTMLInputElement;
+const emailRegisterField = document.getElementById('email-register-field') as HTMLInputElement;
+
+loginButton?.addEventListener('click', () => {
+    const username = usernameLoginField?.value;
+    const password = passwordLoginField?.value;
+
+    if (username && password) {
+        login(username, password);
+    }
+}); 
+
+registerButton?.addEventListener('click', () => {
+    const username = usernameRegisterField?.value;
+    const password = passwordRegisterField?.value;
+    const email = emailRegisterField?.value;
+
+    if (username && password && email) {
+        register(username, password, email);
     }
 }); 
 
@@ -19,7 +42,7 @@ backButton?.addEventListener('click', () => {
     }
 })
 
-registerButton?.addEventListener('click', () => {
+registerNavigationButton?.addEventListener('click', () => {
     if (registerForm && loginForm) {
         registerForm.style.display = 'block';
         loginForm.style.display = 'none'

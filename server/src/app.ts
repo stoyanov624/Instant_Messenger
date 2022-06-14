@@ -1,5 +1,6 @@
 require('dotenv').config();
 import express, {Application} from 'express';
+import cors from 'cors';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
 import { AppDataSource } from './databates-connector';
@@ -8,6 +9,7 @@ import "reflect-metadata"
 
 const app : Application = express(); 
 app.use(express.json());
+app.use(cors({origin: ['http://localhost:8080']}))
 
 const server = createServer(app);
 const io = new Server(server, {cors: {origin: ['http://localhost:8080']}});
