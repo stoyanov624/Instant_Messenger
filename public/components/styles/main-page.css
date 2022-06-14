@@ -304,3 +304,32 @@ ul {
     cursor: pointer;
     outline: none;
 }
+
+.modal-content {
+    position: relative;
+    background-color: #ffe2b3;
+    margin: auto;
+    padding: 10px;
+    color: white;
+    font-size: 28px;
+    border: none;
+    border-radius: 20px;
+    width: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.5s;
+    animation-name: animatetop;
+    animation-duration: 0.5s
+  }
+
+.modal-content button{
+    width: 20%;
+    padding: 0 ;
+    height: 45px;
+    font-size: 28px;
+    border-color: rgb(224, 140, 14);
+    border-style: solid;
+    border-radius: 20px;
+    background-color: rgba(219, 177, 104, 0.5);
+    outline: none;
+  }
