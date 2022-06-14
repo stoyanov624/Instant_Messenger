@@ -1,5 +1,5 @@
-const groups = ["Ivan", "Pesho", "Georgi", "Lelq vi"]; //remove me later
-const friends = ["Iva", "Mel", "Anji", "Lelq vi Pena"]; //remove me later
+const groups : string[] = [];
+const friends : string[] = []; 
 const groupList = document.getElementById("groupList") as HTMLElement; 
 const friendList = document.getElementById("friendList") as HTMLElement;
 
@@ -27,15 +27,6 @@ function addFriends() {
         newButton.style.margin = "30px 30px 0px 0px ";
         newButton.style.color="none";
         friendList.appendChild(newButton);   
-    }
-}
-
-if(groupList && friendList) {
-    groupList.onclick = () => {
-        addGroups();
-    }
-    friendList.onclick = () => {
-        addFriends();
     }
 }
 
