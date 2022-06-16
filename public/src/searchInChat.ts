@@ -20,6 +20,7 @@ if (!!btn && !!span && !!searchField && !!searcher && !!searchButton && !!previo
 let currentChatLines: HTMLElement[] = [];
 let currentChatCounter: number = 0;
 const hideAllHighlights = () => {
+    countIndicator.style.display= "none";
     currentChatLines.forEach((el: HTMLElement) => el.style.backgroundColor = 'transparent')
 }
 const previous = (): void => {
