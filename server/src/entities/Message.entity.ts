@@ -19,20 +19,20 @@ export class Message {
     @ManyToOne(
         () => User,
         user => user.messages
-    )   
+    )
+    @JoinColumn({
+        name: 'user_id',
+        referencedColumnName: 'id'
+    })
+    user: User   
 
     @ManyToOne(
         () => ChatGroup,
         chatgroup => chatgroup.messages
     )
-
     @JoinColumn({
-        name: 'user_id'
-    })
-    user: User
-
-    @JoinColumn({
-        name: 'chatgroup_id'
+        name: 'chatgroup_id',
+        referencedColumnName: 'id'
     })
     chatgroup: ChatGroup
     

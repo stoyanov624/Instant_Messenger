@@ -5,7 +5,9 @@ const login = (username: string, password: string) => {
         username: username,
         password: password
     }).then(response => {
-        console.log(response.data);
+        window.localStorage.setItem("userObject", JSON.stringify(response.data));
+        window.localStorage.setItem("username", username);
+        window.location.replace("http://localhost:8080/home.html");
     })
 }
 
@@ -15,8 +17,9 @@ const register = (username: string, password: string, email: string) => {
         password: password,
         email: email
     }).then(response => {
-        console.log(response.data);
+        window.localStorage.setItem("userObject", JSON.stringify(response.data));
+        window.localStorage.setItem("username", username);
+        window.location.replace("http://localhost:8080/home.html");
     })
 }
-
 export {login, register}; 

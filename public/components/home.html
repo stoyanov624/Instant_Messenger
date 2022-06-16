@@ -105,10 +105,12 @@
             <h2>CREATE GROUP</h2>
           </div>
           <div class="modal-body">
-              <p>You can add friend in a group by their Instant Messenger usernames</p>
-              <input type="text" placeholder="Type the username of a friend" required>
+              <div id="groupInfo">
+                    <p>You can add friend in a group by their Instant Messenger usernames</p>
+              </div>
+              <input id="groupName" type="text" placeholder="Type the username of a friend" required>
               <span></span>
-              <button>Create</button>
+              <button id="createGroup">Create</button>
             </div>
         </div>  
     </div>
@@ -118,6 +120,11 @@
           <div class="modal-header">
             <span class="close">&times;</span>
             <h2>Join Group</h2>
+            <div id="groupInfo"> 
+                <p>You can add friends in a group by their Instant Messenger usernames</p>
+            </div>
+            <input id="groupName" type="text" placeholder="Type the username of a friend" required>
+            <button id="createGroup">Submit</button>
           </div>
           <div class="modal-body">
               <p>You can type the group's ID to join!</p>
@@ -131,5 +138,6 @@
     <script src="/dist/messageSending.js" type="module"></script>
     <script src="/dist/modalGenerator.js" type="module"></script>
     <script src="/dist/groupList.js" type="module"></script>
+    <script src="/dist/groupCreating.js" type="module"></script>
 </body>
 </html>

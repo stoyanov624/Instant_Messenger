@@ -265,7 +265,7 @@ ul {
     background-color: rgba(0,0,0,0.4);
   }
   .modal-header{
-    border-bottom: 1px solid rgb(224, 140, 14);
+    border-bottom: 1px solid rgb(224, 140, 14, 0,5);
     font-weight: bold;
   }
   .modal-content {
