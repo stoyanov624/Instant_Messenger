@@ -1,13 +1,11 @@
-const groups = ["Ivan", "Pesho", "Georgi", "Lelq vi"]; //remove me later
-const friends = ["Iva", "Mel", "Anji", "Lelq vi Pena"]; //remove me later
-
 function addGroups(){
-    debugger;
-    let groupList = document.getElementById("groupList");    
+    const groupListKey = 'groupList';
+    // window.localStorage.setItem(groupListKey, ['dsaasd', 'dasdsadas']);
+    let groupList = document.getElementById(groupListKey);
+    const groups = window.localStorage.getItem(groupListKey);  
     for (let i of groups){
         const newButtom = document.createElement("button");
         const chatLink = document.createElement("a");
-        // chatComponent.href = "";
 
         newButtom.textContent = i;
         newButtom.className = "profileButton";
@@ -18,9 +16,12 @@ function addGroups(){
         groupList.appendChild(newButtom);   
     }
 }
+
 function addFriends(){
-    debugger;
-    let friendList = document.getElementById("friendList");    
+    const friendListKey = 'friendList';
+    // window.localStorage.setItem(friendListKey, ['dsaasd', 'dasdsadas']);
+    let friendList = document.getElementById(friendListKey);
+    const friends = window.localStorage.getItem(friendListKey);  
     for (let i of friends){
         const newButtom = document.createElement("button");
         newButtom.textContent = i;
@@ -30,5 +31,4 @@ function addFriends(){
         newButtom.style.color="none";
         friendList.appendChild(newButtom);   
     }
-
 }
