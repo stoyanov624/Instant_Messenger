@@ -5,12 +5,12 @@ import { User } from "./entities/User.entity";
 
 const AppDataSource = new DataSource({
   type: 'postgres',
-  host: 'localhost',
-  port: 5432,
-  username: 'postgres',
-  password: '1234',
-  database: 'Instant_Messenger',
-  entities: [ChatGroup, Message, User],
+  host: process.env.ORM_HOST,
+  port: Number(process.env.ORM_PORT),
+  username: process.env.ORM_USERNAME,
+  password: process.env.ORM_PASSWORD,
+  database: process.env.ORM_DATABASE,
+  entities: [process.env.ENTITIES_FOLDER_PATH],
   synchronize: true,
   logging: false,
 })
