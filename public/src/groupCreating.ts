@@ -4,14 +4,27 @@ const groupButton = document.getElementById("createGroup");
 const groupAddField = document.getElementById("groupName") as HTMLInputElement;
 
 const groupInformationReq = document.getElementById("groupInfo") as HTMLElement; 
+const groupList = document.getElementById("groupList") as HTMLElement; 
 
 groupButton?.addEventListener('click', () => {
     const groupName = groupAddField?.value;
-    
+
     if (groupName.length > 1) {
         addGroup('frouster', groupName);
 
         document.getElementById("errorMessage")?.remove();
+
+        const newButton = document.createElement("button");
+        const chatLink = document.createElement("a");
+
+        newButton.textContent = groupName;
+        newButton.className = "profileButton";
+        newButton.style.width = "80px";
+        newButton.style.margin = "30px 30px 0px 0px ";
+        newButton.style.color="none";
+        chatLink.appendChild(newButton);
+        groupList.appendChild(newButton);  
+
     } else {
 
         if (!document.getElementById("errorMessage")) {
