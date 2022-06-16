@@ -7,9 +7,8 @@ const groupInformationReq = document.getElementById("groupInfo") as HTMLElement;
 
 groupButton?.addEventListener('click', () => {
     const groupName = groupAddField?.value;
-    console.log(groupName);
+    
     if (groupName.length > 1) {
-        console.log("inside")
         addGroup('frouster', groupName);
 
         document.getElementById("errorMessage")?.remove();
