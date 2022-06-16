@@ -24,7 +24,6 @@ if(addFriendButton && createGroupButton && joinGroupButton) {
 for (const button of closeButtons) {
     button.onclick = function() {
         modal.style.display = "none";
-        document.getElementById("errorMessage")?.remove();
     }
 }
 

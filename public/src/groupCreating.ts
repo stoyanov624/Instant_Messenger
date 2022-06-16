@@ -5,6 +5,7 @@ const groupAddField = document.getElementById("groupName") as HTMLInputElement;
 
 const groupInformationReq = document.getElementById("groupInfo") as HTMLElement; 
 const groupList = document.getElementById("groupList") as HTMLElement; 
+let modal : HTMLElement = document.getElementById("createGroupModal") as HTMLElement;
 
 groupButton?.addEventListener('click', () => {
     const groupName = groupAddField?.value;
@@ -21,9 +22,16 @@ groupButton?.addEventListener('click', () => {
         newButton.className = "profileButton";
         newButton.style.width = "80px";
         newButton.style.margin = "30px 30px 0px 0px ";
+        newButton.style.marginLeft = "10px";
+        newButton.style.height = "60px";
         newButton.style.color="none";
         chatLink.appendChild(newButton);
         groupList.appendChild(newButton);  
+
+
+        modal = document.getElementById("createGroupModal") as HTMLElement;
+        modal.style.display = "none";
+        console.log("blocked")
 
     } else {
 
