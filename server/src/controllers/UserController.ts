@@ -69,11 +69,15 @@ class UserController {
 
     private async addGroup(request: express.Request, response: express.Response) {
         try {
+            const user : User = request.body.userObject;
+            console.log(user);
             const newGroup : ChatGroup = new ChatGroup();
             newGroup.content = request.body.groupName;
-            console.log(newGroup);
             await AppDataSource.manager.save(ChatGroup, newGroup);
 
+            newGroup.users = [user];
+            await AppDataSource.manager.save(ChatGroup, newGroup);
+            
             response.status(200).send(newGroup);
         } catch (error) {
             console.log(error);

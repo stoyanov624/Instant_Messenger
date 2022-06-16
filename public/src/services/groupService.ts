@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const addGroup = (username: string, groupName : string) => {
+const addGroup = (userObject: any, groupName : string) => {
     axios.post('http://localhost:3000/users/addGroup', {
-        username: username,
+        userObject: userObject,
         groupName: groupName,
     }).then(response => {
         console.log(response.data);

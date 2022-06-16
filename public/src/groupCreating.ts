@@ -6,12 +6,12 @@ const groupAddField = document.getElementById("groupName") as HTMLInputElement;
 const groupInformationReq = document.getElementById("groupInfo") as HTMLElement; 
 const groupList = document.getElementById("groupList") as HTMLElement; 
 let modal : HTMLElement = document.getElementById("createGroupModal") as HTMLElement;
-
+const currUser = localStorage.getItem("userObject");
 groupButton?.addEventListener('click', () => {
     const groupName = groupAddField?.value;
 
     if (groupName.length > 1) {
-        addGroup('frouster', groupName);
+        addGroup(currUser, groupName);
 
         document.getElementById("errorMessage")?.remove();
 
@@ -31,7 +31,6 @@ groupButton?.addEventListener('click', () => {
 
         modal = document.getElementById("createGroupModal") as HTMLElement;
         modal.style.display = "none";
-        console.log("blocked")
 
     } else {
 
