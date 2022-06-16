@@ -1,7 +1,9 @@
-import * as express from 'express';
+import e, * as express from 'express';
 import { AppDataSource } from '../databates-connector';
 import { User } from '../entities/User.entity';
 import bcrypt from 'bcrypt';
+import { ChatGroup } from '../entities/ChatGroup.entity';
+import { chdir } from 'process';
 
 class UserController {
     router: express.Router;
@@ -15,6 +17,7 @@ class UserController {
         this.router.get('/', this.getAllUsers);
         this.router.post('/login', this.login);
         this.router.post('/register', this.register);
+        this.router.post('/addGroup', this.addGroup);
     }
 
     private async getAllUsers(request: express.Request, response: express.Response) {
@@ -61,6 +64,19 @@ class UserController {
         } catch(error) {
             console.error(error);
             response.status(500).send({ message: error.message});
+        }
+    }
+
+    private async addGroup(request: express.Request, response: express.Response) {
+        try {
+            const newGroup : ChatGroup = new ChatGroup();
+            newGroup.content = request.body.groupName;
+            console.log(newGroup);
+            await AppDataSource.manager.save(ChatGroup, newGroup);
+
+            response.status(200).send(newGroup);
+        } catch (error) {
+            console.log(error);
         }
     }
 }

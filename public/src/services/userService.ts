@@ -18,5 +18,4 @@ const register = (username: string, password: string, email: string) => {
         console.log(response.data);
     })
 }
-
 export {login, register}; 
