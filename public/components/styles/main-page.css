@@ -24,7 +24,7 @@ body {
 }
 
 .chat-window {
-    background-color: #F7967F;
+    background-color: #f7967f;
     height: 90%;
     width: 90%;
     border-radius: 50px;    
@@ -57,7 +57,44 @@ body {
 .line {
     height: 3px;
     width: 100%;
-    background-color: white;
+    background-color: #ffffff;
+} 
+
+.search{
+    display: none;
+    width: 100%;
+    border-bottom: 1px solid whitesmoke;
+    margin-top: 33px;
+    margin-left: 2px;
+    padding-bottom: 15px;
+    font-size: 16px;
+}
+.search input {
+    width: 50%;
+    height: 25px;
+    border: none;
+}
+
+.search button{
+    width: 7%;
+    height: 27px;
+    font-size: 16px;
+    border:1px solid rgb(224, 140, 14);
+    border-radius: 20px;
+    background: none;
+    outline: none;
+    cursor: pointer;
+} 
+#SearchButton{
+    border:none;
+    width: 27px;
+    height: 27px;
+    background-image: url('../UI/Materials/search-icon-png-9965.png');
+    background-size: cover;
+    margin-left: 5px;
+    margin-right: 20px;
+    font-size: 11px;
+    text-indent: -9999px;
 }
 
 .message-container > :first-child {
