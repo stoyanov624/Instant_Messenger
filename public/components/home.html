@@ -53,15 +53,16 @@
                 <div class="row" id="profileIcon">
                 </div>
                 <ul>
-                    <li class="profileButton">
-
+                    <li>
+                        <button id="addFriendButton">ADD FRIEND</button>
                     </li>
 
-                    <li class="profileButton">
-                        
+                    <li>
+                        <button id="createGroupButton">CREATE GROUP</button>
                     </li>
-                    <li class="profileButton">
-                        
+
+                    <li>
+                        <button id="joinGroupButton">Join GROUP</button>
                     </li>
                 </ul>
             
@@ -70,6 +71,54 @@
             </div>
         </div>
     </div>
+
+    <div id="addFriendModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>ADD FRIEND</h2>
+          </div>
+          <div class="modal-body">
+              <p>You can add a friend with their Instant Messenger username. Be careful, because it's cAsE sEnSitiVe!</p>
+              <input type="text" placeholder="Search a new friend" required>
+              <span></span>
+              <button>Add</button>
+        </div>
+        </div>  
+    </div>
+
+    <div id="createGroupModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>CREATE GROUP</h2>
+          </div>
+          <div class="modal-body">
+              <p>You can add friend in a group by their Instant Messenger usernames</p>
+              <input type="text" placeholder="Type the username of a friend" required>
+              <span></span>
+              <button>Create</button>
+            </div>
+        </div>  
+    </div>
+
+    <div id="joinGroupModal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">&times;</span>
+            <h2>Join Group</h2>
+          </div>
+          <div class="modal-body">
+              <p>You can type the group's ID to join!</p>
+              <input type="text" placeholder="ID" required>
+              <span></span>
+              <button>Join</button>
+            </div>
+        </div>  
+    </div>
+    
     <script src="/dist/messageSending.js" type="module"></script>
+    <script src="/dist/modalGenerator.js" type="module"></script>
+    <script src="/dist/groupList.js" type="module"></script>
 </body>
 </html>
