@@ -57,6 +57,7 @@ class UserController {
             user.username = request.body.username;
             user.password = hashedPassword;
             user.email = request.body.email;
+            user.chatgroups = [];
 
             await AppDataSource.manager.save(User, user);
             delete(user.password);
@@ -69,14 +70,11 @@ class UserController {
 
     private async addGroup(request: express.Request, response: express.Response) {
         try {
-            const user : User = request.body.userObject;
-            console.log(user);
-            const newGroup : ChatGroup = new ChatGroup();
+            const user : User = JSON.parse(request.body.userObject);
+            let newGroup : ChatGroup = new ChatGroup();
             newGroup.content = request.body.groupName;
-            await AppDataSource.manager.save(ChatGroup, newGroup);
-
             newGroup.users = [user];
-            await AppDataSource.manager.save(ChatGroup, newGroup);
+            newGroup = await AppDataSource.manager.save(ChatGroup, newGroup);
             
             response.status(200).send(newGroup);
         } catch (error) {
