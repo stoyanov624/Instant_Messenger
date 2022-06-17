@@ -1,4 +1,5 @@
 import {io} from 'socket.io-client';
+import { saveMessage } from './services/groupService';
 import { createMyMessageElement, createReceivedMessageElement } from './services/messageService';
 
 const user = JSON.parse(sessionStorage.getItem('userObject') as string);
@@ -28,9 +29,13 @@ socket.on('receive-message', (message : string) => {
 })
 
 const sendMyMessage = (message : string) => {
-    createMyMessageElement(message, messages);
-    console.log(socket.id);
-    socket.emit('send-message', message, 1);
+    const openedChatId = Number(sessionStorage.getItem('openedChat'));
+    if(openedChatId) {
+        createMyMessageElement(message, messages);
+        socket.emit('send-message', message, openedChatId);
+        saveMessage(message, user.id, openedChatId)
+    }
+    
 }
 
 export {};

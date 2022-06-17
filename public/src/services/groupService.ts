@@ -32,10 +32,13 @@ const joinGroup = (username: any, groupId : string) => {
     });
 }
 
-const saveMessage = (userObject: any, groupName : string) => {
-    axios.post('http://localhost:3000/users/addGroup', {
-        userObject: userObject,
-        groupName: groupName,
+const saveMessage = (message : string, userId : number, chatGroupId: number) => {
+    axios.post('http://localhost:3000/groups/messages', {
+        message: {
+            content: message,
+            userId: userId,
+            chatGroupId: chatGroupId
+        }
     }).then(response => {
         console.log(response.data);
     })
@@ -70,6 +73,8 @@ const generateGroup = (groupId: number, groupName: string) => {
                 createReceivedMessageElement(message.content, chat);
             }
         }
+
+        sessionStorage.setItem('openedChat', groupId.toString());
     })
 }
 
@@ -84,4 +89,4 @@ const generateGroupButton = (groupName: string) => {
     groupList.appendChild(newButton);  
 }
 
-export {addGroup, joinGroup, generateGroup}; 
+export {addGroup, joinGroup, generateGroup, saveMessage}; 
