@@ -60,6 +60,10 @@
                     <li>
                         <button id="searchInChatButton">SEARCH IN CHAT</button>
                     </li>
+
+                    <li style="margin-top: 500px;">
+                            <button id="logout">Logout</button>
+                    </li>
                 </ul>
             
             <div id="buttonMenu">
@@ -90,11 +94,9 @@
             <h2>CREATE GROUP</h2>
           </div>
           <div class="modal-body">
-              <div id="groupInfo">
-                    <p>You can add friend in a group by their Instant Messenger usernames</p>
-              </div>
-              <input id="groupName" type="text" placeholder="Type the username of a friend" required>
-              <span></span>
+              <p>Please provide group name</p>
+              <span id="errorMessage" style="color: red;"></span>
+              <input id="groupName" type="text" placeholder="Enter group name" required>
               <button id="createGroup">Create</button>
             </div>
         </div>  
@@ -122,5 +124,6 @@
     <script src="/dist/groupList.js" type="module"></script>
     <script src="/dist/groupCreating.js" type="module"></script>
     <script src="/dist/joinGroup.js" type="module"></script>
+    <script src="/dist/services/userService.js" type="module"></script>
 </body>
 </html>
