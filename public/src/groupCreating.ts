@@ -15,14 +15,7 @@ groupButton?.addEventListener('click', () => {
     errorMessage.innerText = "";
 
     if (groupName.length > 1) {
-        addGroup(currUser, groupName);
-
-        const newButton = document.createElement("button");
-        const chatLink = document.createElement("a");
-        newButton.textContent = groupName;
-        newButton.className = "group-display";
-        chatLink.appendChild(newButton);
-        groupList.appendChild(newButton);  
+        addGroup(currUser, groupName);  
 
         modal = document.getElementById("createGroupModal") as HTMLElement;
         modal.style.display = "none";

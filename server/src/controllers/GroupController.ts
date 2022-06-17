@@ -37,8 +37,8 @@ export class GroupController {
                 if (!group.users.find(e => e.username == user.username)) {
                     group.users.push(user);
 
-                    await AppDataSource.manager.save(ChatGroup, group);
-                    response.status(200);
+                    const joinedGroup = await AppDataSource.manager.save(ChatGroup, group);
+                    response.status(200).send(joinedGroup);
                 } else {
                     throw "You are already in this group!";
                 }

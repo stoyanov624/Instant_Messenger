@@ -11,6 +11,7 @@ const addGroup = (userObject: any, groupName : string) => {
         const parseUser = JSON.parse(userObject);
         parseUser.chatgroups.push(group);
         localStorage.setItem("userObject", JSON.stringify(parseUser));
+        generateGroupButton(group.content);
     })
 }
 
@@ -19,9 +20,11 @@ const joinGroup = (username: any, groupId : string) => {
         username: username,
         groupId: groupId,
     }).then(response => {
-        if(response.status == 200) {
-            console.log(response.data);
-        }
+        const group = response.data;
+        const userObject = JSON.parse(localStorage.getItem('userObject') as string);
+        userObject.chatgroups.push(group);
+        localStorage.setItem("userObject", JSON.stringify(userObject));
+        generateGroupButton(group.content);
     }, error => {
         console.log(error.response.data.messageErr);
         joinGroupError.innerText = "";
@@ -63,6 +66,17 @@ const generateGroup = (groupId: number, groupName: string) => {
             }
         }
     })
+}
+
+const generateGroupButton = (groupName: string) => {
+    const groupList = document.getElementById("groupList") as HTMLElement; 
+    
+    const newButton = document.createElement("button");
+    const chatLink = document.createElement("a");
+    newButton.textContent = groupName;
+    newButton.className = "group-display";
+    chatLink.appendChild(newButton);
+    groupList.appendChild(newButton);  
 }
 
 export {addGroup, joinGroup, generateGroup}; 

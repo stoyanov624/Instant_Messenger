@@ -21,7 +21,7 @@ joinGroupButton?.addEventListener('click', () => {
             }
         } else {
         try {
-            joinGroup(username, groupId);
+            joinGroup(username, groupId); 
          } catch (error) {
             console.log(error);
             joinGroupError.innerText += error;
