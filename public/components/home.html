@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/main-page.css">
+    <link rel="stylesheet" href="styles/group-button.css">
 </head>
 <body>
     <div class="chat-container center">
@@ -120,17 +121,14 @@
           <div class="modal-header">
             <span class="close">&times;</span>
             <h2>Join Group</h2>
-            <div id="groupInfo"> 
-                <p>You can add friends in a group by their Instant Messenger usernames</p>
-            </div>
-            <input id="groupName" type="text" placeholder="Type the username of a friend" required>
-            <button id="createGroup">Submit</button>
           </div>
           <div class="modal-body">
               <p>You can type the group's ID to join!</p>
-              <input type="text" placeholder="ID" required>
-              <span></span>
-              <button>Join</button>
+              <div> 
+                <input id="groupId" type="text" placeholder="ID" required>
+                <span id="errorMessage" style="color: red"></span>
+              </div>
+              <button id="joinGroup">Join</button>
             </div>
         </div>  
     </div>
@@ -139,5 +137,6 @@
     <script src="/dist/modalGenerator.js" type="module"></script>
     <script src="/dist/groupList.js" type="module"></script>
     <script src="/dist/groupCreating.js" type="module"></script>
+    <script src="/dist/joinGroup.js" type="module"></script>
 </body>
 </html>
