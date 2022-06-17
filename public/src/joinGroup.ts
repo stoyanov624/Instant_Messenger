@@ -9,14 +9,17 @@ let modal : HTMLElement = document.getElementById("joinGroupModal") as HTMLEleme
 const currUser = localStorage.getItem("userObject");
 
 joinGroupButton?.addEventListener('click', () => {
-    const groupId = Number(groupIdField?.value);
+    const username = localStorage.getItem("username");
+    console.log(username);
+    const groupId = groupIdField?.value;
     console.log(groupId);
     try {
-        if(!groupId || groupId < 1) {
+        if(!groupId || Number(groupId) < 1) {
             if (joinGroupError.innerText.length < 1) {
                 joinGroupError.innerText += "Invalid group ID. Make sure is positive!";
             }
         } 
+        joinGroup(username, groupId);
     } catch (error) {
         joinGroupError.innerText += error;
     }
