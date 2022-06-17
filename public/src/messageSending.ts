@@ -3,7 +3,6 @@ import { saveMessage } from './services/groupService';
 import { createMyMessageElement, createReceivedMessageElement } from './services/messageService';
 
 const user = JSON.parse(sessionStorage.getItem('userObject') as string);
-console.log(user);
 const socket = io('http://localhost:3000');
 const input = document.getElementById('msg-sender') as HTMLInputElement | null;
 const messages = document.getElementById('chat') as HTMLElement;

@@ -11,7 +11,7 @@ const addGroup = (userObject: any, groupName : string) => {
         const parseUser = JSON.parse(userObject);
         parseUser.chatgroups.push(group);
         localStorage.setItem("userObject", JSON.stringify(parseUser));
-        generateGroupButton(group.content);
+        generateGroupButton(group.content, group.id);
     })
 }
 
@@ -24,7 +24,7 @@ const joinGroup = (username: any, groupId : string) => {
         const userObject = JSON.parse(sessionStorage.getItem('userObject') as string);
         userObject.chatgroups.push(group);
         localStorage.setItem("userObject", JSON.stringify(userObject));
-        generateGroupButton(group.content);
+        generateGroupButton(group.content, group.id);
     }, error => {
         console.log(error.response.data.messageErr);
         joinGroupError.innerText = "";
@@ -39,9 +39,7 @@ const saveMessage = (message : string, userId : number, chatGroupId: number) => 
             userId: userId,
             chatGroupId: chatGroupId
         }
-    }).then(response => {
-        console.log(response.data);
-    })
+    });
 }
 
 const fetchMessages = (groupId: number) => {
@@ -78,15 +76,22 @@ const generateGroup = (groupId: number, groupName: string) => {
     })
 }
 
-const generateGroupButton = (groupName: string) => {
+const generateGroupButton = (groupName: string, groupId: number) => {
     const groupList = document.getElementById("groupList") as HTMLElement; 
     
-    const newButton = document.createElement("button");
+    const newButton = document.createElement("button") as HTMLElement;
     const chatLink = document.createElement("a");
     newButton.textContent = groupName;
+    newButton.id = groupId.toString();
     newButton.className = "group-display";
     chatLink.appendChild(newButton);
     groupList.appendChild(newButton);  
+
+    newButton.addEventListener('click', (event) => {
+        const groupId = Number((event.target as HTMLButtonElement).id);
+        const groupName = (event.target as HTMLButtonElement).textContent as string;
+        generateGroup(groupId, groupName);
+    })
 }
 
 export {addGroup, joinGroup, generateGroup, saveMessage}; 

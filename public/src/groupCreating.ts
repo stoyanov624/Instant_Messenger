@@ -21,8 +21,7 @@ groupButton?.addEventListener('click', () => {
         modal.style.display = "none";
 
     } else {
-        console.log("inside")
-            errorMessage.innerText += "Invalid information. Length must be > 1";
+        errorMessage.innerText += "Invalid information. Length must be > 1";
     }
 })
 
