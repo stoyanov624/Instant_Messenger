@@ -48,7 +48,6 @@ export class GroupController {
                 throw "The group does not exists!";
             }
         } catch (authError) {
-            console.log(authError);
             response.status(400).send({
                 messageErr: authError
             });

@@ -73,7 +73,7 @@ export class UserController {
             if (!username || username.length < 3 || username.length > 100) {
                 throw "Make sure your username is more than 3 characters and less than 100";
             }  
-            if (!password || password.length < 6 || password.length > 50) {
+            if (!password || password.length < 4 || password.length > 50) {
                 throw "Make sure your password is more than 6 characters and less than 50";
             }
             if(!email || !validateEmail(request.body.email)) {
@@ -116,6 +116,9 @@ export class UserController {
     private async addGroup(request: express.Request, response: express.Response) {
         try {
             const user : User = JSON.parse(request.body.userObject);
+
+            
+
             let newGroup : ChatGroup = new ChatGroup();
             newGroup.content = request.body.groupName;
             newGroup.users = [user];
