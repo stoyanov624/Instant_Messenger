@@ -13,13 +13,17 @@ function generateUserGroups() {
     for (const group of userGroups) {
         const newButton = document.createElement("button");
         const chatLink = document.createElement("a");
+        
         newButton.textContent = group.content;
         newButton.id = group.id;
         newButton.className = "group-display";
+
         newButton.addEventListener('click', async (event) => {
             const groupId = Number((event.target as HTMLButtonElement).id);
-            generateGroup(groupId);
+            const groupName = (event.target as HTMLButtonElement).textContent as string;
+            generateGroup(groupId, groupName);
         })
+
         chatLink.appendChild(newButton);
         groupList.appendChild(newButton);
     }

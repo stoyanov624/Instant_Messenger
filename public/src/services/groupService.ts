@@ -41,10 +41,18 @@ const fetchMessages = (groupId: number) => {
     return axios.get(`http://localhost:3000/groups/messages/${groupId}`);
 }
 
-const generateGroup = (groupId: number) => {
-    fetchMessages(groupId).then(response => (
-        console.log(response.data)
-    ));
+const generateGroup = (groupId: number, groupName: string) => {
+    fetchMessages(groupId).then(response => {
+        const messages = response.data;
+        const chat = document.getElementById('chat-window') as HTMLElement;
+        chat.style.display = "flex";
+        chat.style.flexDirection = "column";
+
+        const chatNameHtml = chat.querySelector('#chat-name') as HTMLElement;
+        chatNameHtml.innerText = `Public chat: ${groupName}`;
+
+
+    })
 }
 
 export {addGroup, joinGroup, generateGroup}; 
