@@ -17,14 +17,8 @@ groupButton?.addEventListener('click', () => {
 
         const newButton = document.createElement("button");
         const chatLink = document.createElement("a");
-
         newButton.textContent = groupName;
-        newButton.className = "profileButton";
-        newButton.style.width = "80px";
-        newButton.style.margin = "30px 30px 0px 0px ";
-        newButton.style.marginLeft = "10px";
-        newButton.style.height = "60px";
-        newButton.style.color="none";
+        newButton.className = "group-display";
         chatLink.appendChild(newButton);
         groupList.appendChild(newButton);  
 

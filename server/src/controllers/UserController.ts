@@ -1,11 +1,11 @@
-import e, * as express from 'express';
+import * as express from 'express';
 import { AppDataSource } from '../databates-connector';
 import { User } from '../entities/User.entity';
 import bcrypt from 'bcrypt';
 import { ChatGroup } from '../entities/ChatGroup.entity';
 import { chdir } from 'process';
 
-class UserController {
+export class UserController {
     router: express.Router;
 
     constructor() {
@@ -46,7 +46,7 @@ class UserController {
 
         } catch(error) {
             console.error(error);
-            response.status(500).send({ message: error.message});
+            response.status(500).send({ error: error.message});
         }
     }
 
@@ -82,5 +82,3 @@ class UserController {
         }
     }
 }
-
-export {UserController};

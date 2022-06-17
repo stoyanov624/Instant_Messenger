@@ -8,7 +8,7 @@ const previousElement: HTMLElement | null = document.getElementById('previous');
 const nextElement: HTMLElement | null = document.getElementById('next');
 const close: HTMLElement | null = document.getElementById('close');
 
-if (!!btn && !!span && !!searchField && !!searcher && !!searchButton && !!previousElement && !!nextElement && !!close) {
+if (btn && span && searchField && searcher && searchButton && previousElement && nextElement && close) {
     btn.addEventListener('click', () => searcher.style.display = "block");
     span.addEventListener('click', () => searcher.style.display = "none");
     searchButton.addEventListener('click', () => searchInChat());
