@@ -38,15 +38,21 @@ export class UserController {
                     delete(user.password);
                     response.status(200).send(user);
                 } else {
-                    response.status(200).send('Wrong password');
+                    throw "Wrong Password";
+                    //response.status(200).send('Wrong password');
                 }
             } else {
-                response.status(200).send('Wrong username');
+                throw "Wrong username";
+                //response.status(200).send('Wrong username');
             }
 
-        } catch(error) {
-            console.error(error);
-            response.status(500).send({ error: error.message});
+        } catch(authError) {
+            //console.error(error);
+           // response.status(500).send({ error: error.message});
+
+            response.status(400).send({
+                messageErr: authError
+            });
         }
     }
 
