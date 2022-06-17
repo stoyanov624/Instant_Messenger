@@ -1,5 +1,8 @@
 import axios from 'axios';
 const authErrors = document.getElementById("errorMessage") as HTMLElement;
+
+const logoutButton = document.getElementById('logout');
+
 const login = (username: string, password: string) => {
     axios.post('http://localhost:3000/users/login', {
         username: username,
@@ -30,4 +33,14 @@ const register = (username: string, password: string, email: string) => {
         authErrors.innerText += error.response.data.messageErr;
     })
 }
+
+logoutButton?.addEventListener('click', () => {
+    if (localStorage.getItem("username")) {
+        localStorage.clear();
+        window.location.replace("http://localhost:8080/index.html");
+    } else {
+        window.location.replace("http://localhost:8080/index.html");
+    }
+})
+
 export {login, register}; 
