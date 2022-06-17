@@ -46,7 +46,7 @@ export class UserController {
 
         } catch(error) {
             console.error(error);
-            response.status(500).send({ message: error.message});
+            response.status(500).send({ error: error.message});
         }
     }
 

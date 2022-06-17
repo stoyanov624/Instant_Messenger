@@ -19,14 +19,14 @@ joinGroupButton?.addEventListener('click', () => {
             if (joinGroupError.innerText.length < 1) {
                 joinGroupError.innerText += "Invalid group ID. Make sure is positive!";
             }
-        } 
+        } else {
         try {
-        joinGroup(username, groupId);
-    } catch (error) {
-        console.log(error);
-        joinGroupError.innerText += error;
-    }
-
+            joinGroup(username, groupId);
+         } catch (error) {
+            console.log(error);
+            joinGroupError.innerText += error;
+            }
+        }
     
 })
 
