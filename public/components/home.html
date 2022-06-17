@@ -30,26 +30,9 @@
                         <button id="next">Next</button>
                         <span id="close" class="close">&times;</span>
                     </div>
-                        <ul style="list-style-type: none;" class="message-container" id="chat">
-                            <!-- <li class="message my-message shadow">
-                                <div class="my-user-tag">
-                                    <img class="user-chat-icon" src="UI/Materials/user-profile-account-digital-data-robot-multimedia.png">
-                                    <p class="sender-name">You</p>
-                                </div>
-                    
-                                <div class="message-text">Hello!</div>
-                            </li>
-
-                            <li class="message shadow">
-                                <div>
-                                    <img class="user-chat-icon" src="UI/Materials/user-profile-account-digital-data-robot-multimedia.png">
-                                    <p class="sender-name">Gosho</p>
-                                </div>
-                                
-                                <div class="message-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia facere non amet, delectus id minus aperiam distinctio! Cumque placeat, nesciunt in exercitationem modi repellat consectetur quia voluptatum? Reiciendis quia explicabo perspiciatis maxime vel possimus quasi quas alias deserunt! Excepturi tempora at temporibus! Minus facilis hic suscipit, mollitia pariatur atque quidem!</div>
-                            </li> -->
-                        </ul>
-                        <input id="msg-sender" type="text">
+                    <ul style="list-style-type: none;" class="message-container" id="chat">
+                    </ul>
+                    <input id="msg-sender" type="text">
                 </div>
             </div>
             <div class="row" id="friendList">
@@ -57,7 +40,9 @@
         </div>
         
         <div class="side-column" id="profileMenu">
-                <div class="row" id="profileIcon">
+                <div class="row" id="profile">
+                    <img id="profileIcon" src="UI/Materials/user-profile-account-digital-data-robot-multimedia.png">
+                    <p id="profileUsername" class="bolded"></p> 
                 </div>
                 <ul>
                     <li>
@@ -120,17 +105,14 @@
           <div class="modal-header">
             <span class="close">&times;</span>
             <h2>Join Group</h2>
-            <div id="groupInfo"> 
-                <p>You can add friends in a group by their Instant Messenger usernames</p>
-            </div>
-            <input id="groupName" type="text" placeholder="Type the username of a friend" required>
-            <button id="createGroup">Submit</button>
           </div>
           <div class="modal-body">
               <p>You can type the group's ID to join!</p>
-              <input type="text" placeholder="ID" required>
-              <span></span>
-              <button>Join</button>
+              <div> 
+                <input id="groupId" type="text" placeholder="ID" required>
+                <span id="errorMessage" style="color: red"></span>
+              </div>
+              <button id="joinGroup">Join</button>
             </div>
         </div>  
     </div>
@@ -139,5 +121,6 @@
     <script src="/dist/modalGenerator.js" type="module"></script>
     <script src="/dist/groupList.js" type="module"></script>
     <script src="/dist/groupCreating.js" type="module"></script>
+    <script src="/dist/joinGroup.js" type="module"></script>
 </body>
 </html>
