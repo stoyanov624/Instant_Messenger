@@ -10,17 +10,20 @@ const currUser = localStorage.getItem("userObject");
 
 joinGroupButton?.addEventListener('click', () => {
     const username = localStorage.getItem("username");
-    console.log(username);
     const groupId = groupIdField?.value;
-    console.log(groupId);
-    try {
+
+    //Removing the errors
+    joinGroupError.innerText = "";
+    
         if(!groupId || Number(groupId) < 1) {
             if (joinGroupError.innerText.length < 1) {
                 joinGroupError.innerText += "Invalid group ID. Make sure is positive!";
             }
         } 
+        try {
         joinGroup(username, groupId);
     } catch (error) {
+        console.log(error);
         joinGroupError.innerText += error;
     }
 

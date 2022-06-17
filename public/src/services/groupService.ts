@@ -1,4 +1,5 @@
 import axios from 'axios';
+const joinGroupError = document.getElementById("errorMessage") as HTMLElement;
 
 const addGroup = (userObject: any, groupName : string) => {
     axios.post('http://localhost:3000/users/addGroup', {
@@ -14,8 +15,14 @@ const joinGroup = (username: any, groupId : string) => {
         username: username,
         groupId: groupId,
     }).then(response => {
-        console.log(response.data);
-    })
+        if(response.status == 200) {
+            console.log(response.data);
+        }
+    }, error => {
+        console.log(error.response.data.messageErr);
+        joinGroupError.innerText = "";
+        joinGroupError.innerText += error.response.data.messageErr;
+    });
 }
 
 
