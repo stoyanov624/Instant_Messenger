@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { createMyMessageElement } from './messageService';
 const joinGroupError = document.getElementById("errorMessage") as HTMLElement;
 
 const addGroup = (userObject: any, groupName : string) => {
@@ -43,15 +44,24 @@ const fetchMessages = (groupId: number) => {
 
 const generateGroup = (groupId: number, groupName: string) => {
     fetchMessages(groupId).then(response => {
-        const messages = response.data;
-        const chat = document.getElementById('chat-window') as HTMLElement;
-        chat.style.display = "flex";
-        chat.style.flexDirection = "column";
+        const chat = document.getElementById('chat') as HTMLElement;
 
-        const chatNameHtml = chat.querySelector('#chat-name') as HTMLElement;
+        const userId = Number(JSON.parse(localStorage.getItem('userObject') as string).id);
+        const messages = response.data;
+        console.log(messages);
+        
+        const chatWindow = document.getElementById('chat-window') as HTMLElement;
+        chatWindow.style.display = "flex";
+        chatWindow.style.flexDirection = "column";
+
+        const chatNameHtml = chatWindow.querySelector('#chat-name') as HTMLElement;
         chatNameHtml.innerText = `Public chat: ${groupName}`;
 
-
+        for (const message of messages) {
+            if (message.userId == userId) {
+                createMyMessageElement(message.content, chat);
+            }
+        }
     })
 }
 

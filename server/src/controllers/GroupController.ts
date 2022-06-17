@@ -27,14 +27,12 @@ export class GroupController {
             const user : User = await AppDataSource.manager.findOne(User, {
                 where: {username: username}
             })
-            console.log(groupId);
-            console.log(user);
+
             const group : ChatGroup = await AppDataSource.manager.findOne(ChatGroup, {
                 relations: ["users"],
                 where: {id: groupId}
             })
-
-            console.log(group);
+            
             if (group) {
                 if (!group.users.find(e => e.username == user.username)) {
                     group.users.push(user);
@@ -60,7 +58,8 @@ export class GroupController {
             const groupId = Number(request.params.groupId);
             const group : ChatGroup = await AppDataSource.manager.findOne(ChatGroup, {
                 relations: ['messages'],
-                where: {id: groupId}
+                where: {id: groupId},
+                order: {id: 'ASC'}
             }); 
 
             if(!group) {
