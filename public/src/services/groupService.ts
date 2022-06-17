@@ -38,10 +38,13 @@ const saveMessage = (userObject: any, groupName : string) => {
 }
 
 const fetchMessages = (groupId: number) => {
-    axios.get(`http://localhost:3000/messages/${groupId}`, {
-    }).then(response => {
-        return response.data;
-    })
+    return axios.get(`http://localhost:3000/groups/messages/${groupId}`);
 }
 
-export {addGroup, joinGroup}; 
+const generateGroup = (groupId: number) => {
+    fetchMessages(groupId).then(response => (
+        console.log(response.data)
+    ));
+}
+
+export {addGroup, joinGroup, generateGroup}; 
