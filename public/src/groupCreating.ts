@@ -3,7 +3,6 @@ import { addGroup } from './services/groupService';
 const groupButton = document.getElementById("createGroup"); 
 const groupAddField = document.getElementById("groupName") as HTMLInputElement;
 
-const groupList = document.getElementById("groupList") as HTMLElement; 
 let modal : HTMLElement = document.getElementById("createGroupModal") as HTMLElement;
 const currUser = sessionStorage.getItem("userObject");
 

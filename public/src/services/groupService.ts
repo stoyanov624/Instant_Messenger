@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { createMyMessageElement, createReceivedMessageElement } from './messageService';
-const joinGroupError = document.getElementById("errorMessage") as HTMLElement;
+const joinGroupError = document.getElementById("errorMessageJoin") as HTMLElement;
 
 const addGroup = (userObject: any, groupName : string) => {
     axios.post('http://localhost:3000/users/addGroup', {
@@ -15,7 +15,7 @@ const addGroup = (userObject: any, groupName : string) => {
     })
 }
 
-const joinGroup = (username: any, groupId : string) => {
+const joinGroup = (username: any, groupId : Number ) => {
     axios.post('http://localhost:3000/groups/join', {
         username: username,
         groupId: groupId,
@@ -25,8 +25,10 @@ const joinGroup = (username: any, groupId : string) => {
         userObject.chatgroups.push(group);
         localStorage.setItem("userObject", JSON.stringify(userObject));
         generateGroupButton(group.content, group.id);
+
+        const modal = document.getElementById("joinGroupModal") as HTMLElement;
+        modal.style.display = "none";
     }, error => {
-        console.log(error.response.data.messageErr);
         joinGroupError.innerText = "";
         joinGroupError.innerText += error.response.data.messageErr;
     });
