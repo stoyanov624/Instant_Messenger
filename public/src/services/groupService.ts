@@ -6,7 +6,10 @@ const addGroup = (userObject: any, groupName : string) => {
         userObject: userObject,
         groupName: groupName,
     }).then(response => {
-        console.log(response.data);
+        const group = response.data;
+        const parseUser = JSON.parse(userObject);
+        parseUser.chatgroups.push(group);
+        localStorage.setItem("userObject", JSON.stringify(parseUser));
     })
 }
 
@@ -25,5 +28,20 @@ const joinGroup = (username: any, groupId : string) => {
     });
 }
 
+const saveMessage = (userObject: any, groupName : string) => {
+    axios.post('http://localhost:3000/users/addGroup', {
+        userObject: userObject,
+        groupName: groupName,
+    }).then(response => {
+        console.log(response.data);
+    })
+}
+
+const fetchMessages = (groupId: number) => {
+    axios.get(`http://localhost:3000/messages/${groupId}`, {
+    }).then(response => {
+        return response.data;
+    })
+}
 
 export {addGroup, joinGroup}; 
