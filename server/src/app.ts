@@ -18,8 +18,8 @@ const io = new Server(server, {cors: {origin: ['http://localhost:8080']}});
 
 AppDataSource.initialize().then(() => {
     io.on('connection', socket => {
-        socket.on('send-message', (message : string, chatroomId: number) => {
-            socket.to(chatroomId.toString()).emit('receive-message', message);
+        socket.on('send-message', (message : string, sender: string ,chatroomId: number) => {
+            socket.to(chatroomId.toString()).emit('receive-message', message, sender);
         })
 
         socket.on('join-rooms', (chatRooms: Array<ChatGroup>) => {

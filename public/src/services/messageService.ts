@@ -1,11 +1,11 @@
 
 
-const createReceivedMessageElement = (message: string, chat: HTMLElement) => {
+const createReceivedMessageElement = (message: string, sender: string ,chat: HTMLElement) => {
     const myHTMLMessage = document.createElement('li');
     myHTMLMessage.classList.add(...['message', 'shadow']);
     const shouldKeepScrollAtBottom = (chat?.scrollHeight || 0) - (chat?.scrollTop || 0) === chat?.clientHeight;
     
-    const userTag = createUserTagElement('My friend!');
+    const userTag = createUserTagElement(sender);
     userTag.classList.remove('my-user-tag');
     const myMessage = createMessageElement(message);
     

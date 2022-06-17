@@ -70,7 +70,7 @@ const generateGroup = (groupId: number, groupName: string) => {
             if (message.userId == userId) {
                 createMyMessageElement(message.content, chat);
             } else {
-                createReceivedMessageElement(message.content, chat);
+                createReceivedMessageElement(message.content, message.user.username ,chat);
             }
         }
 

@@ -24,15 +24,15 @@ if (input) {
     });
 }
 
-socket.on('receive-message', (message : string) => {
-    createReceivedMessageElement(message, messages)
+socket.on('receive-message', (message : string, sender: string) => {
+    createReceivedMessageElement(message, sender ,messages)
 })
 
 const sendMyMessage = (message : string) => {
     const openedChatId = Number(sessionStorage.getItem('openedChat'));
     if(openedChatId) {
         createMyMessageElement(message, messages);
-        socket.emit('send-message', message, openedChatId);
+        socket.emit('send-message', message, user.username ,openedChatId);
         saveMessage(message, user.id, openedChatId)
     }
     

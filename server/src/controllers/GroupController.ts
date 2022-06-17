@@ -57,7 +57,7 @@ export class GroupController {
         try {
             const groupId = Number(request.params.groupId);
             const group : ChatGroup = await AppDataSource.manager.findOne(ChatGroup, {
-                relations: ['messages'],
+                relations: ['messages', 'messages.user'],
                 where: {id: groupId},
                 order: {id: 'ASC'}
             }); 
