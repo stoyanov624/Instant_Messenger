@@ -1,4 +1,4 @@
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryColumn, PrimaryGeneratedColumn } from "typeorm";
 import { ChatGroup } from "./ChatGroup.entity";
 import { User } from "./User.entity";
 
@@ -10,7 +10,7 @@ export class Message {
     @Column()
     content: string;
 
-    @Column() 
+    @CreateDateColumn() 
     date: Date;
 
     @ManyToOne(
@@ -27,10 +27,17 @@ export class Message {
         () => ChatGroup,
         chatgroup => chatgroup.messages
     )
+
     @JoinColumn({
         name: 'chatgroup_id',
         referencedColumnName: 'id'
     })
     chatgroup: ChatGroup
+
+    @Column({name: 'chatgroup_id'})
+    chatGroupId: number;
+
+    @Column({name: 'user_id'})
+    userId: number;
     
 }

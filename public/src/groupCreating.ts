@@ -5,7 +5,7 @@ const groupAddField = document.getElementById("groupName") as HTMLInputElement;
 
 const groupList = document.getElementById("groupList") as HTMLElement; 
 let modal : HTMLElement = document.getElementById("createGroupModal") as HTMLElement;
-const currUser = localStorage.getItem("userObject");
+const currUser = sessionStorage.getItem("userObject");
 
 const errorMessage = document.getElementById("errorMessage") as HTMLElement;
 
@@ -15,14 +15,7 @@ groupButton?.addEventListener('click', () => {
     errorMessage.innerText = "";
 
     if (groupName.length > 1) {
-        addGroup(currUser, groupName);
-
-        const newButton = document.createElement("button");
-        const chatLink = document.createElement("a");
-        newButton.textContent = groupName;
-        newButton.className = "group-display";
-        chatLink.appendChild(newButton);
-        groupList.appendChild(newButton);  
+        addGroup(currUser, groupName);  
 
         modal = document.getElementById("createGroupModal") as HTMLElement;
         modal.style.display = "none";

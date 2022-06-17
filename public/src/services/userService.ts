@@ -8,8 +8,8 @@ const login = (username: string, password: string) => {
         username: username,
         password: password
     }).then(response => {
-        window.localStorage.setItem("userObject", JSON.stringify(response.data));
-        window.localStorage.setItem("username", username);
+        sessionStorage.setItem("userObject", JSON.stringify(response.data));
+        sessionStorage.setItem("username", username);
         window.location.replace("http://localhost:8080/home.html");
     }, error => {
         console.log(error.response.data.messageErr);
@@ -24,8 +24,8 @@ const register = (username: string, password: string, email: string) => {
         password: password,
         email: email
     }).then(response => {
-        window.localStorage.setItem("userObject", JSON.stringify(response.data));
-        window.localStorage.setItem("username", username);
+        sessionStorage.setItem("userObject", JSON.stringify(response.data));
+        sessionStorage.setItem("username", username);
         window.location.replace("http://localhost:8080/home.html");
     }, error => {
         console.log(error.response.data.messageErr);
@@ -35,8 +35,8 @@ const register = (username: string, password: string, email: string) => {
 }
 
 logoutButton?.addEventListener('click', () => {
-    if (localStorage.getItem("username")) {
-        localStorage.clear();
+    if (sessionStorage.getItem("username")) {
+        sessionStorage.clear();
         window.location.replace("http://localhost:8080/index.html");
     } else {
         window.location.replace("http://localhost:8080/index.html");

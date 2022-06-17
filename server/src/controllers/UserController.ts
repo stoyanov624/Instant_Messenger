@@ -67,30 +67,33 @@ export class UserController {
             const password = request.body.password;
             const email = request.body.email;
 
-            console.log(password);
             if (!username || username.length < 3 || username.length > 100) {
                 throw "Make sure your username is more than 3 characters and less than 100";
             }  
             if (!password || password.length < 4 || password.length > 50) {
                 throw "Make sure your password is more than 6 characters and less than 50";
             }
-            if(!email || !validateEmail(request.body.email)) {
+            if(!email || !validateEmail(email)) {
                 throw "Invalid email. Please make sure is in correct format!";
             }
 
-            if(AppDataSource.manager.findOne(User, {
-                where: {username: request.body.username}
-            })) {
+            let foundUser = await AppDataSource.manager.findOne(User, {
+                where: {username: username}
+            });
+
+            if(foundUser) {
                 throw "There is already a user with such username";
             }
 
-            if(AppDataSource.manager.findOne(User, {
+            foundUser = await AppDataSource.manager.findOne(User, {
                 where: {email: email}
-            })) {
+            });
+
+            if(foundUser) {
                 throw "There is already a user with such email";
             }
 
-            const hashedPassword = await bcrypt.hash(request.body.password, 10);
+            const hashedPassword = await bcrypt.hash(password, 10);
             const user : User = new User();
 
             user.username = request.body.username;
@@ -106,17 +109,13 @@ export class UserController {
             response.status(400).send({
                 messageErr: authError
             });
-            // console.error(error);
-            // response.status(500).send({ message: error.message});
         }
     }
 
     private async addGroup(request: express.Request, response: express.Response) {
         try {
             const user : User = JSON.parse(request.body.userObject);
-
             
-
             let newGroup : ChatGroup = new ChatGroup();
             newGroup.content = request.body.groupName;
             newGroup.users = [user];
