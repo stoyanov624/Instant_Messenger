@@ -54,7 +54,6 @@ const generateGroup = (groupId: number, groupName: string) => {
 
         const userId = Number(JSON.parse(sessionStorage.getItem('userObject') as string).id);
         const messages = response.data;
-        console.log(messages);
         
         const chatWindow = document.getElementById('chat-window') as HTMLElement;
         const messageContainer = chatWindow.querySelector('#chat') as HTMLElement;

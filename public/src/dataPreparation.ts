@@ -19,8 +19,9 @@ function generateUserGroups() {
         newButton.className = "group-display";
 
         newButton.addEventListener('click', (event) => {
-            const groupId = Number((event.target as HTMLButtonElement).id);
-            const groupName = (event.target as HTMLButtonElement).textContent as string;
+            const button = event.target as HTMLButtonElement;
+            const groupId = Number(button.id);
+            const groupName = `${button.textContent} (ID: ${groupId})`;
             generateGroup(groupId, groupName);
         })
 
