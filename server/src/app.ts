@@ -7,6 +7,7 @@ import { AppDataSource } from './databates-connector';
 import { MainRouter } from './router/MainRouter';
 import bodyParser from 'body-parser';
 import "reflect-metadata"
+import { ChatGroup } from './entities/ChatGroup.entity';
 
 const app : Application = express(); 
 
@@ -21,9 +22,9 @@ AppDataSource.initialize().then(() => {
             socket.to(chatroomId.toString()).emit('receive-message', message);
         })
 
-        socket.on('join-rooms', (chatRooms: Array<number>) => {
+        socket.on('join-rooms', (chatRooms: Array<ChatGroup>) => {
             for (const chatRoom of chatRooms) {
-                socket.join(chatRoom.toString());
+                socket.join((chatRoom.id).toString());
             }
         })
     });

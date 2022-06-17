@@ -1,6 +1,6 @@
 import { generateGroup } from "./services/groupService";
 
-const user = JSON.parse(localStorage.getItem('userObject') as string);
+const user = JSON.parse(sessionStorage.getItem('userObject') as string);
 const groupList = document.getElementById("groupList") as HTMLElement; 
 
 function setUsernameForProfile() {

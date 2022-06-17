@@ -5,7 +5,7 @@ const groupAddField = document.getElementById("groupName") as HTMLInputElement;
 
 const groupList = document.getElementById("groupList") as HTMLElement; 
 let modal : HTMLElement = document.getElementById("createGroupModal") as HTMLElement;
-const currUser = localStorage.getItem("userObject");
+const currUser = sessionStorage.getItem("userObject");
 
 const errorMessage = document.getElementById("errorMessage") as HTMLElement;
 

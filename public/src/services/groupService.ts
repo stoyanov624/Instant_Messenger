@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { createMyMessageElement } from './messageService';
+import { createMyMessageElement, createReceivedMessageElement } from './messageService';
 const joinGroupError = document.getElementById("errorMessage") as HTMLElement;
 
 const addGroup = (userObject: any, groupName : string) => {
@@ -21,7 +21,7 @@ const joinGroup = (username: any, groupId : string) => {
         groupId: groupId,
     }).then(response => {
         const group = response.data;
-        const userObject = JSON.parse(localStorage.getItem('userObject') as string);
+        const userObject = JSON.parse(sessionStorage.getItem('userObject') as string);
         userObject.chatgroups.push(group);
         localStorage.setItem("userObject", JSON.stringify(userObject));
         generateGroupButton(group.content);
@@ -49,11 +49,14 @@ const generateGroup = (groupId: number, groupName: string) => {
     fetchMessages(groupId).then(response => {
         const chat = document.getElementById('chat') as HTMLElement;
 
-        const userId = Number(JSON.parse(localStorage.getItem('userObject') as string).id);
+        const userId = Number(JSON.parse(sessionStorage.getItem('userObject') as string).id);
         const messages = response.data;
         console.log(messages);
         
         const chatWindow = document.getElementById('chat-window') as HTMLElement;
+        const messageContainer = chatWindow.querySelector('#chat') as HTMLElement;
+        messageContainer.innerHTML = "";
+
         chatWindow.style.display = "flex";
         chatWindow.style.flexDirection = "column";
 
@@ -63,6 +66,8 @@ const generateGroup = (groupId: number, groupName: string) => {
         for (const message of messages) {
             if (message.userId == userId) {
                 createMyMessageElement(message.content, chat);
+            } else {
+                createReceivedMessageElement(message.content, chat);
             }
         }
     })
