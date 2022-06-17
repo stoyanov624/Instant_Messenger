@@ -15,7 +15,7 @@ export class GroupController {
 
     private createRoutes() {
         this.router.get('/messages/:groupId', this.getGroupMessages);
-        this.router.post('/messages/:groupId', this.saveMessageToGroup);
+        this.router.post('/messages', this.saveMessageToGroup);
         this.router.post('/join', this.assignUser)
     }
 
@@ -55,11 +55,7 @@ export class GroupController {
         }
     }
 
-    private async generateGroups(request: Express.Request, response: Express.Response){
-        
-    }
-
-    private async getGroupMessages(response: express.Response, request: express.Request) {
+    private async getGroupMessages(request: express.Request, response: express.Response) {
         try {
             const groupId = Number(request.params.groupId);
             const group : ChatGroup = await AppDataSource.manager.findOne(ChatGroup, {
@@ -79,21 +75,17 @@ export class GroupController {
         }
     }
 
-    private async saveMessageToGroup(response: express.Response, request: express.Request) {
+    private async saveMessageToGroup(request: express.Request, response: express.Response) {
         try {
-            let message : Message = JSON.parse(request.body.message)
-            const groupId = Number(request.params.groupId);
+            let message : Message = request.body.message;
             const group : ChatGroup = await AppDataSource.manager.findOne(ChatGroup, {
-                relations: ['messages'],
-                where: {id: groupId}
+                where: {id: message.chatGroupId}
             }); 
 
             if(!group) {
                 throw new Error("Group not found!");
             }
             message = await AppDataSource.manager.save(Message, message);
-            group.messages.push(message);
-            await AppDataSource.manager.save(ChatGroup, group);
 
             response.status(200).send('Message send!');
         } catch (error) {

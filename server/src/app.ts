@@ -5,10 +5,11 @@ import { createServer } from 'http';
 import { Server } from 'socket.io';
 import { AppDataSource } from './databates-connector';
 import { MainRouter } from './router/MainRouter';
+import bodyParser from 'body-parser';
 import "reflect-metadata"
 
 const app : Application = express(); 
-app.use(express.json());
+
 app.use(cors({origin: ['http://localhost:8080']}))
 
 const server = createServer(app);
@@ -26,6 +27,8 @@ AppDataSource.initialize().then(() => {
             }
         })
     });
+    app.use(express.json())
+
     const mainRouter : MainRouter = new MainRouter();
     app.use(mainRouter.router);
     server.listen(process.env.PORT, () => console.log(`Server listening at port: ${process.env.PORT}`))
