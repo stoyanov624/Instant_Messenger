@@ -10,9 +10,6 @@ export class Message {
     @Column()
     content: string;
 
-    @Column()
-    isPrivate: boolean;
-
     @Column() 
     date: Date;
 
