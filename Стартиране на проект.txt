@@ -1,0 +1,21 @@
+0. Инсталирайте psql / postgres , node js с npm ако ги нямате вече на компютъра си. 
+
+1. След като сте си изтеглили проекта от гит хъб хранилището за двете папки 'server' и 'public' трябва да се изпълни npm install
+2. В папката server трябва да си направите .env файл със следния формат:
+PORT='3000'
+ORM_DATABASE_TYPE='postgres'
+ORM_HOST='localhost'
+ORM_PORT='5432'
+ORM_USERNAME='postgres'
+ORM_PASSWORD='postgres'
+ORM_DATABASE='Instant_Messenger'
+ENTITIES_FOLDER_PATH="src/entities/**/*.entity.ts"
+
+където ORM_USERNAME и ORM_PASSWORD са Вашите потребителско име и парола в psql (postgres)
+
+3. Създайте празна база на своя psql Instant_Messenger. (или с името, което запишете в .env файла за ORM_DATABASE)
+
+4. Стартирайте backend сървъра като влезнете в папката server от терминала и напишете npm start
+
+5.Стартирайте frontend сървъра като влезнете в папката public от терминала и напишете npm start.
+
